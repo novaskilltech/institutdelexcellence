@@ -15,3 +15,7 @@ Thumbs.db
 .cache/
 # Vercel local configuration
 .vercel/
+# Dossiers de travail locaux (brouillons jamais publiés)
+nouveaux-livres/brouillons/
+nouveaux-livres/logs/
+nouveaux-livres/.lock

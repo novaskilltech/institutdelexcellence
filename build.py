@@ -4,14 +4,14 @@ Usage: python build.py --site-url https://votre-domaine.fr
 Dépendances optionnelles : pymupdf + Pillow pour extraire les nouvelles couvertures.
 """
 from __future__ import annotations
-import argparse, html, json, re, textwrap
+import argparse, html, json, os, re, textwrap
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import quote, urljoin
 ROOT=Path(__file__).resolve().parent
 parser=argparse.ArgumentParser()
 parser.add_argument('--site-url',default='',help='URL absolue du site pour les métadonnées sociales (facultatif avant déploiement).')
 args=parser.parse_args()
-SITE_URL=args.site_url.rstrip('/')
+SITE_URL=(args.site_url or os.environ.get('SITE_URL','')).rstrip('/')
 books=json.loads((ROOT/'livres.json').read_text(encoding='utf-8'))
 h=lambda value:html.escape(str(value),quote=True)
 
@@ -34,18 +34,21 @@ for b in books:
 # Métadonnées de partage : chaque livre dispose de sa miniature sociale.
 try:
     from PIL import Image,ImageDraw,ImageFont
-    font_serif='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf'
-    font_sans='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-    def F(path,size):
-        try:return ImageFont.truetype(path,size)
-        except OSError:return ImageFont.load_default()
+    SERIF_FONTS=['/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf','C:/Windows/Fonts/georgiab.ttf','C:/Windows/Fonts/georgia.ttf']
+    SANS_FONTS=['/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf','C:/Windows/Fonts/arial.ttf','C:/Windows/Fonts/segoeui.ttf']
+    def F(paths,size):
+        for p in paths:
+            if Path(p).is_file():
+                try:return ImageFont.truetype(p,size)
+                except OSError:continue
+        return ImageFont.load_default()
     def og_image(book=None):
         W,H=1200,630;im=Image.new('RGB',(W,H),(19,56,47));d=ImageDraw.Draw(im)
         # Art direction: luminous green circles and small brass ornaments
         d.ellipse((650,-340,1390,390),fill=(25,68,56))
         d.ellipse((790,330,1230,770),outline=(128,115,78),width=2)
         d.line((65,104,180,104),fill=(184,144,83),width=3)
-        d.text((65,57),'INSTITUT DE L’EXCELLENCE',font=F(font_sans,25),fill=(230,209,164))
+        d.text((65,57),'INSTITUT DE L’EXCELLENCE',font=F(SANS_FONTS,25),fill=(230,209,164))
         title=book['titre'] if book else 'Des savoirs à transmettre.\nDes livres à partager.'
         max_chars=26 if book else 29
         # Split by character length without cutting words.
@@ -54,15 +57,15 @@ try:
             lines+=textwrap.wrap(segment,width=max_chars,break_long_words=False,break_on_hyphens=False)
         top=161
         for line in lines[:4]:
-            d.text((65,top),line,font=F(font_serif,51 if book else 52),fill=(249,248,239))
+            d.text((65,top),line,font=F(SERIF_FONTS,51 if book else 52),fill=(249,248,239))
             top+=80
         subtitle=(book['accroche'] if book else 'Livres et livrets gratuits · Lecture libre')
         sublines=textwrap.wrap(subtitle,width=52)
         y=max(420,top+8)
         for line in sublines[:2]:
-            d.text((66,y),line,font=F(font_sans,21),fill=(205,215,202));y+=32
+            d.text((66,y),line,font=F(SANS_FONTS,21),fill=(205,215,202));y+=32
         d.rounded_rectangle((65,550,268,591),radius=18,fill=(239,230,210))
-        d.text((89,558),'ACCÈS GRATUIT',font=F(font_sans,18),fill=(23,61,51))
+        d.text((89,558),'ACCÈS GRATUIT',font=F(SANS_FONTS,18),fill=(23,61,51))
         if book:
             cover=Image.open(ROOT/book['cover']).convert('RGB')
             cover.thumbnail((310,515),Image.Resampling.LANCZOS)
@@ -110,12 +113,16 @@ def shell(title,description,url,og,content,prefix=''):
 {meta(title,description,url,og)}
 <link rel="icon" href="{prefix}assets/img/favicon.svg" type="image/svg+xml"><link rel="manifest" href="{prefix}manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="{prefix}assets/css/style.css"></head><body>{header(prefix)}{content}{footer(prefix)}<script defer src="{prefix}assets/js/main.js"></script></body></html>'''
 
+def format_excerpt(text):
+    t=str(text).strip()
+    return t if t.endswith(('.','!','?','…')) else t+'.'
+
 def card(b):
-    return f'''<article class="book-card" data-book data-category="{h(b['categorie_id'])}" data-search="{h(' '.join([b['titre'],b['accroche'],b['description'],b['collection'],b['categorie']]))}"><a href="livres/{h(b['slug'])}/" class="book-media" aria-label="Découvrir {h(b['titre'])}"><img class="book-cover" src="{h(b['cover'])}" alt="Couverture du livre {h(b['titre'])}" loading="lazy"><span class="free-pill">Gratuit</span></a><div class="book-body"><span class="book-collection">{h(b['collection'])}</span><h3 class="book-title"><a href="livres/{h(b['slug'])}/">{h(b['titre'])}</a></h3><p class="book-excerpt">{h(b['accroche'])}.</p><div class="book-bottom"><span>{b['pages']} pages · PDF</span><a class="link-arrow" href="livres/{h(b['slug'])}/">Découvrir <span class="arrow" aria-hidden="true">→</span></a></div></div></article>'''
+    return f'''<article class="book-card" data-book data-category="{h(b['categorie_id'])}" data-search="{h(' '.join([b['titre'],b['accroche'],b['description'],b['collection'],b['categorie'],b.get('auteur','')]))}"><a href="livres/{h(b['slug'])}/" class="book-media" aria-label="Découvrir {h(b['titre'])}"><img class="book-cover" src="{h(b['cover'])}" alt="Couverture du livre {h(b['titre'])}" loading="lazy"><span class="free-pill">Gratuit</span></a><div class="book-body"><span class="book-collection">{h(b['collection'])}</span><h3 class="book-title"><a href="livres/{h(b['slug'])}/">{h(b['titre'])}</a></h3><p class="book-excerpt">{h(format_excerpt(b['accroche']))}</p><div class="book-bottom"><span>{b['pages']} pages · PDF</span><a class="link-arrow" href="livres/{h(b['slug'])}/">Découvrir <span class="arrow" aria-hidden="true">→</span></a></div></div></article>'''
 
 categories=[('tout','Tous les livres'),('histoires','Biographies'),('priere','Prière'),('education','Éducation'),('coran','Coran'),('fiqh','Fiqh')]
 filters=''.join(f'<button type="button" class="filter-btn" data-filter="{h(key)}" aria-pressed="{str(i==0).lower()}">{h(label)}</button>' for i,(key,label) in enumerate(categories))
-hero_books=[books[2],books[1],books[3]]
+hero_books=[books[i] for i in (2,1,3) if i<len(books)] or books[:3]
 hero_imgs=''.join(f'<img class="hero-book {cls}" src="{b["cover"]}" alt="" aria-hidden="true" loading="eager">' for cls,b in zip(['one','two','three'],hero_books))
 home_content=f'''<main id="main"><section class="hero" id="accueil"><div class="container hero-grid"><div><span class="eyebrow">Maison d’édition · Accès libre</span><h1 class="serif">Le savoir se <em>transmet.</em><br>Il se partage.</h1><p class="hero-copy">Des livres conçus pour comprendre, apprendre et progresser. Découvrez les ouvrages de l’Institut de l’Excellence, disponibles gratuitement au format PDF.</p><div class="hero-actions"><a class="btn btn-primary" href="#catalogue">Explorer les ouvrages <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#mission">Découvrir l’Institut</a></div><div class="hero-notes"><span><span class="mini-check" aria-hidden="true">✦</span> Lecture libre</span><span><span class="mini-check" aria-hidden="true">✦</span> PDF gratuits</span><span><span class="mini-check" aria-hidden="true">✦</span> Sans inscription</span></div></div><div class="hero-art" aria-label="Sélection de couvertures de nos livres">{hero_imgs}<div class="hero-seal"><span aria-hidden="true">✦</span> {len(books)} ouvrages à découvrir</div></div></div></section>
 <section class="section catalogue" id="catalogue"><div class="container"><div class="section-header"><div><span class="eyebrow">Notre bibliothèque</span><h2 class="serif">Les ouvrages de l’Institut</h2></div><p class="section-intro">Des textes de transmission, de pédagogie et de réflexion, à consulter ou à conserver gratuitement.</p></div><div class="toolbar"><div class="filters" role="group" aria-label="Filtrer les livres par catégorie">{filters}</div><label class="search" for="book-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher un ouvrage</span><input id="book-search" type="search" placeholder="Rechercher un livre…" autocomplete="off"></label></div><p class="results-count" id="results-count" role="status" aria-live="polite">{len(books)} ouvrages affichés</p><div class="book-grid" id="books">{''.join(card(b) for b in books)}</div><div class="empty-state" id="empty-results"><p>Aucun livre ne correspond à cette recherche.</p><p>Essayez un autre mot ou sélectionnez « Tous les livres ».</p></div></div></section>
@@ -127,9 +134,13 @@ for b in books:
     slug=b['slug'];prefix='../../'
     others=[x for x in books if x['slug']!=slug][:3]
     other_html=''.join(f'<a class="other-mini" href="../{h(x["slug"])}/"><img src="{prefix}{h(x["cover"])}" alt="" loading="lazy"><span><strong>{h(x["titre"])}</strong><span>{h(x["collection"])}</span></span></a>' for x in others)
-    details=f'''<main id="main"><section class="detail"><div class="container"><a class="back-link" href="../../index.html#catalogue"><span aria-hidden="true">←</span> Retour au catalogue</a><div class="detail-grid"><div class="detail-image"><img src="{prefix}{h(b['cover'])}" alt="Couverture de {h(b['titre'])}"></div><div class="detail-info"><span class="eyebrow">{h(b['collection'])}</span><h1 class="detail-title">{h(b['titre'])}</h1><p class="detail-lead">{h(b['accroche'])}</p><p class="detail-description">{h(b['description'])}</p><div class="detail-meta"><span><strong>Gratuit</strong> · Accès libre</span><span>{b['pages']} pages</span><span>{h(b['date'])}</span><span>PDF</span></div><div class="detail-actions"><a class="btn btn-primary" href="{prefix}{h(b['pdf'])}" target="_blank" rel="noopener">Lire en ligne <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="{prefix}{h(b['pdf'])}" download="{h(slug)}.pdf">↓ Télécharger le PDF</a><button type="button" class="btn btn-outline" data-share data-title="{h(b['titre'])}">Partager</button></div><p class="detail-note">Aucune inscription et aucun paiement requis. Œuvre protégée par le droit d’auteur.</p></div></div></div></section><section class="other-books"><div class="container"><span class="eyebrow">Poursuivre la découverte</span><h2>D’autres ouvrages à lire</h2><div class="other-grid">{other_html}</div></div></section></main>'''
+    author_meta=f'<span>{h(b["auteur"])}</span>' if b.get('auteur') else ''
+    share_url=absolute(f'/livres/{slug}/')
+    wa_text=quote(f"{b['titre']} — {share_url}" if share_url.startswith('http') else b['titre'])
+    details=f'''<main id="main"><section class="detail"><div class="container"><a class="back-link" href="../../index.html#catalogue"><span aria-hidden="true">←</span> Retour au catalogue</a><div class="detail-grid"><div class="detail-image"><img src="{prefix}{h(b['cover'])}" alt="Couverture de {h(b['titre'])}"></div><div class="detail-info"><span class="eyebrow">{h(b['collection'])}</span><h1 class="detail-title">{h(b['titre'])}</h1><p class="detail-lead">{h(b['accroche'])}</p><p class="detail-description">{h(b['description'])}</p><div class="detail-meta"><span><strong>Gratuit</strong> · Accès libre</span>{author_meta}<span>{b['pages']} pages</span><span>{h(b['date'])}</span><span>PDF</span></div><div class="detail-actions"><a class="btn btn-primary" href="{prefix}{h(b['pdf'])}" target="_blank" rel="noopener">Lire gratuitement <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="{prefix}{h(b['pdf'])}" download="{h(slug)}.pdf">↓ Télécharger le PDF</a><a class="btn btn-outline" href="https://wa.me/?text={wa_text}" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="btn btn-outline" data-share data-title="{h(b['titre'])}">Partager</button></div><p class="detail-note">Aucune inscription et aucun paiement requis. Œuvre protégée par le droit d’auteur.</p></div></div></div></section><section class="other-books"><div class="container"><span class="eyebrow">Poursuivre la découverte</span><h2>D’autres ouvrages à lire</h2><div class="other-grid">{other_html}</div></div></section></main>'''
     # Schema.org JSON-LD helps search engines describe book pages.
-    schema={'@context':'https://schema.org','@type':'Book','name':b['titre'],'description':b['description'],'inLanguage':'fr','numberOfPages':b['pages'],'bookFormat':'https://schema.org/EBook','isAccessibleForFree':True,'publisher':{'@type':'Organization','name':'Institut de l’Excellence'},'image':absolute('/'+b['cover'])}
+    schema={'@context':'https://schema.org','@type':'Book','name':b['titre'],'description':b['description'],'inLanguage':b.get('langue','fr'),'numberOfPages':b['pages'],'bookFormat':'https://schema.org/EBook','isAccessibleForFree':True,'publisher':{'@type':'Organization','name':'Institut de l’Excellence'},'image':absolute('/'+b['cover'])}
+    if b.get('auteur'):schema['author']={'@type':'Person','name':b['auteur']}
     schema_tag='<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('</','<\\/')+'</script>'
     p=ROOT/'livres'/slug;p.mkdir(parents=True,exist_ok=True)
     page=shell(f"{b['titre']} | Institut de l’Excellence",b['description'],f'/livres/{slug}/',f'assets/img/partage/{slug}.jpg',details,prefix).replace('</head>',schema_tag+'</head>')

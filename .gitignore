@@ -1,0 +1,17 @@
+# Python / éditeur
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# Journaux / caches
+*.log
+.cache/
+# Vercel local configuration
+.vercel/

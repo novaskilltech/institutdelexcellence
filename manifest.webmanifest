@@ -1,0 +1,16 @@
+{
+  "name": "Institut de l’Excellence — Maison d’édition",
+  "short_name": "Institut Excellence",
+  "description": "Bibliothèque gratuite des ouvrages de l’Institut de l’Excellence",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf8f2",
+  "theme_color": "#163b33",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

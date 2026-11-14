@@ -1,0 +1,63 @@
+[
+  {
+    "slug": "jeunes-compagnons-grands-heros",
+    "titre": "Jeunes Compagnons, grands héros",
+    "accroche": "Huit parcours de foi, de science et de caractère",
+    "description": "Huit biographies commentées pour découvrir comment de jeunes Compagnons ont servi l’islam, recherché la science et incarné le courage. Avec commentaires, exercices de réflexion et repères bibliographiques.",
+    "collection": "Héritages & modèles",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
+    "pages": 47,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/jeunes-compagnons-grands-heros.pdf",
+    "mise_en_avant": true
+  },
+  {
+    "slug": "le-waqf-et-libtida",
+    "titre": "Le waqf et l’ibtidāʾ",
+    "accroche": "Où s’arrêter, où reprendre et préserver le sens du Coran",
+    "description": "Une première initiation à l’art des pauses et des reprises dans la récitation coranique. Des exemples accessibles, des règles essentielles et des exercices pour éviter d’altérer le sens des versets.",
+    "collection": "Comprendre sa récitation · Tome 1",
+    "categorie": "Sciences du Coran",
+    "categorie_id": "coran",
+    "pages": 37,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/le-waqf-et-libtida.pdf"
+  },
+  {
+    "slug": "se-tenir-devant-allah",
+    "titre": "Se tenir devant Allah",
+    "accroche": "Les règles de bienséance de la prière",
+    "description": "Retrouver le recueillement, le respect et la présence du cœur dans la prière individuelle, en groupe et du vendredi. Une édition enrichie par des enseignements tirés des Secrets de la prière d’Ibn al-Qayyim.",
+    "collection": "Vie spirituelle",
+    "categorie": "Prière & spiritualité",
+    "categorie_id": "priere",
+    "pages": 44,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/se-tenir-devant-allah.pdf"
+  },
+  {
+    "slug": "leurs-premiers-pas-vers-la-priere",
+    "titre": "Leurs premiers pas vers la prière",
+    "accroche": "Enseigner dès le plus jeune âge, accompagner avec constance",
+    "description": "Un guide pour les parents et les éducateurs : commencer tôt, enseigner progressivement, encourager avec patience et installer des habitudes durables, avec conseils pratiques et repères pédagogiques.",
+    "collection": "Éducation & transmission",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 20,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/leurs-premiers-pas-vers-la-priere.pdf"
+  },
+  {
+    "slug": "la-ithar-fi-al-qurubat",
+    "titre": "L’īthār dans les actes d’adoration",
+    "accroche": "Faut-il céder sa place dans les adorations ?",
+    "description": "Une règle juridique expliquée avec nuance : le sens de « لا إيثار في القربات », ses exceptions, les divergences entre savants et ses applications dans la mosquée, l’entraide et le pèlerinage.",
+    "collection": "Repères de fiqh",
+    "categorie": "Jurisprudence",
+    "categorie_id": "fiqh",
+    "pages": 20,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/la-ithar-fi-al-qurubat.pdf"
+  }
+]

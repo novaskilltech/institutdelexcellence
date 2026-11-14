@@ -1,3 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Relancer python build.py --site-url https://votre-domaine pour générer le sitemap. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://institutdelexcellence.vercel.app/</loc></url><url><loc>https://institutdelexcellence.vercel.app/livres/jeunes-compagnons-grands-heros/</loc></url><url><loc>https://institutdelexcellence.vercel.app/livres/le-waqf-et-libtida/</loc></url><url><loc>https://institutdelexcellence.vercel.app/livres/se-tenir-devant-allah/</loc></url><url><loc>https://institutdelexcellence.vercel.app/livres/leurs-premiers-pas-vers-la-priere/</loc></url><url><loc>https://institutdelexcellence.vercel.app/livres/la-ithar-fi-al-qurubat/</loc></url></urlset>

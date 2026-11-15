@@ -199,5 +199,17 @@
     "pdf": "pdfs/quand-la-faiblesse-de-jugement-fr-final.pdf",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "jumua-mubaraka-institut-excellence-avec-couverture",
+    "titre": "Jumua Mubaraka Institut Excellence Avec Couverture",
+    "accroche": "Ouvrage de 25 pages au format PDF",
+    "description": "Jumua Mubaraka Institut Excellence Avec Couverture — ouvrage de 25 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 25,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/jumua-mubaraka-institut-excellence-avec-couverture.pdf"
   }
 ]

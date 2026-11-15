@@ -41,8 +41,12 @@ try {
         }
     }
 
+    $prevErr = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
     git pull --rebase origin main 2>&1 | Out-Null
-    if ($LASTEXITCODE -ne 0) {
+    $pullExit = $LASTEXITCODE
+    $ErrorActionPreference = $prevErr
+    if ($pullExit -ne 0) {
         Write-Log "ERREUR: git pull --rebase a échoué. Résolution manuelle requise."
         exit 1
     }
@@ -54,14 +58,22 @@ try {
     }
 
     $names = ($files | ForEach-Object { $_.Name }) -join ", "
-    git commit -m "Dépôt automatique : $names"
-    if ($LASTEXITCODE -ne 0) {
+    $prevErr = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    git commit -m "Dépôt automatique : $names" 2>&1 | Out-Null
+    $commitExit = $LASTEXITCODE
+    $ErrorActionPreference = $prevErr
+    if ($commitExit -ne 0) {
         Write-Log "ERREUR: git commit a échoué."
         exit 1
     }
 
-    git push origin main
-    if ($LASTEXITCODE -ne 0) {
+    $prevErr = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    git push origin main 2>&1 | Out-Null
+    $pushExit = $LASTEXITCODE
+    $ErrorActionPreference = $prevErr
+    if ($pushExit -ne 0) {
         Write-Log "ERREUR: git push a échoué."
         exit 1
     }

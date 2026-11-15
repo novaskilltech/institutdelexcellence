@@ -2,15 +2,16 @@
   {
     "slug": "jeunes-compagnons-grands-heros",
     "titre": "Jeunes Compagnons, grands héros",
-    "accroche": "Huit parcours de foi, de science et de caractère",
-    "description": "Huit biographies commentées pour découvrir comment de jeunes Compagnons ont servi l’islam, recherché la science et incarné le courage. Avec commentaires, exercices de réflexion et repères bibliographiques.",
+    "accroche": "Nouvelle édition enrichie · Huit destins de foi, de science et de courage",
+    "description": "Découvrez huit parcours de compagnons du Prophète ﷺ, racontés et commentés pour inspirer la jeunesse. Édition enrichie à lire et télécharger gratuitement.",
     "collection": "Héritages & modèles",
     "categorie": "Histoire & biographies",
     "categorie_id": "histoires",
     "pages": 47,
     "date": "Novembre 2026",
     "pdf": "pdfs/jeunes-compagnons-grands-heros.pdf",
-    "mise_en_avant": true
+    "auteur": "Institut de l’Excellence",
+    "langue": "fr"
   },
   {
     "slug": "le-waqf-et-libtida",
@@ -59,5 +60,42 @@
     "pages": 20,
     "date": "Novembre 2026",
     "pdf": "pdfs/la-ithar-fi-al-qurubat.pdf"
+  },
+  {
+    "slug": "le-conseil-en-islam-edition-enrichie-nouveau-lien",
+    "titre": "Le Conseil En Islam Edition Enrichie Nouveau Lien",
+    "accroche": "Ouvrage de 23 pages au format PDF",
+    "description": "Le Conseil En Islam Edition Enrichie Nouveau Lien — ouvrage de 23 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 23,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/le-conseil-en-islam-edition-enrichie-nouveau-lien.pdf"
+  },
+  {
+    "slug": "les-jardins-du-paradis-institut-de-l-excellence-edition-publiee",
+    "titre": "Les jardins du Paradis que nous délaissons",
+    "accroche": "Ouvrage de 27 pages au format PDF",
+    "description": "Les jardins du Paradis que nous délaissons — ouvrage de 27 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 27,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/les-jardins-du-paradis-institut-de-l-excellence-edition-publiee.pdf",
+    "auteur": "Institut de l’Excellence — sous la direction éditoriale de Salah Eddine Abou Soulaymane"
+  },
+  {
+    "slug": "une-montagne-de-recompenses",
+    "titre": "Une Montagne De Recompenses",
+    "accroche": "Ouvrage de 20 pages au format PDF",
+    "description": "Une Montagne De Recompenses — ouvrage de 20 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 20,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/une-montagne-de-recompenses.pdf"
   }
 ]

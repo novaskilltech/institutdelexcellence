@@ -97,5 +97,102 @@
     "pages": 20,
     "date": "Novembre 2026",
     "pdf": "pdfs/une-montagne-de-recompenses.pdf"
+  },
+  {
+    "slug": "badirou-aux-bonnes-oeuvres-edition-imprimable-a5",
+    "titre": "Bâdirû bil-a‘mâl — Hâtez-vous d’accomplir les bonnes œuvres",
+    "accroche": "Ouvrage de 32 pages au format PDF",
+    "description": "Bâdirû bil-a‘mâl — Hâtez-vous d’accomplir les bonnes œuvres — ouvrage de 32 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 32,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/badirou-aux-bonnes-oeuvres-edition-imprimable-a5.pdf",
+    "auteur": "Sous la direction éditoriale de Salah Eddine Abou Soulaymane"
+  },
+  {
+    "slug": "guide-hajj-omra-epreuve-du-caractere-2026",
+    "titre": "Hajj et Omra - À l’épreuve du caractère",
+    "accroche": "Ouvrage de 12 pages au format PDF",
+    "description": "Hajj et Omra - À l’épreuve du caractère — ouvrage de 12 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 12,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/guide-hajj-omra-epreuve-du-caractere-2026.pdf"
+  },
+  {
+    "slug": "je-suis-le-coran-ton-compagnon-novaskilltech-fr",
+    "titre": "Je suis le Coran, ton compagnon | Étude d’un hadith et récit pour enfants",
+    "accroche": "Ouvrage de 25 pages au format PDF",
+    "description": "Je suis le Coran, ton compagnon | Étude d’un hadith et récit pour enfants — ouvrage de 25 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 25,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/je-suis-le-coran-ton-compagnon-novaskilltech-fr.pdf"
+  },
+  {
+    "slug": "khalid-ibn-al-walid-le-fer-et-le-destin-nouvelle-couverture",
+    "titre": "Khalid Ibn Al Walid Le Fer Et Le Destin Nouvelle Couverture",
+    "accroche": "Ouvrage de 57 pages au format PDF",
+    "description": "Khalid Ibn Al Walid Le Fer Et Le Destin Nouvelle Couverture — ouvrage de 57 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 57,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/khalid-ibn-al-walid-le-fer-et-le-destin-nouvelle-couverture.pdf"
+  },
+  {
+    "slug": "khalid-ibn-al-walid-le-fer-et-le-destin-novaskilltech-2026",
+    "titre": "Khalid Ibn Al Walid Le Fer Et Le Destin Novaskilltech 2026",
+    "accroche": "Ouvrage de 57 pages au format PDF",
+    "description": "Khalid Ibn Al Walid Le Fer Et Le Destin Novaskilltech 2026 — ouvrage de 57 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 57,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/khalid-ibn-al-walid-le-fer-et-le-destin-novaskilltech-2026.pdf"
+  },
+  {
+    "slug": "le-coraniste-repenti-edition-finale",
+    "titre": "Le Coraniste Repenti Edition Finale",
+    "accroche": "Ouvrage de 428 pages au format PDF",
+    "description": "Le Coraniste Repenti Edition Finale — ouvrage de 428 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 428,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/le-coraniste-repenti-edition-finale.pdf"
+  },
+  {
+    "slug": "livret-pudeur-sacralite-la-mecque-v1",
+    "titre": "Livret Pudeur Sacralite La Mecque V1",
+    "accroche": "Ouvrage de 20 pages au format PDF",
+    "description": "Livret Pudeur Sacralite La Mecque V1 — ouvrage de 20 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 20,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/livret-pudeur-sacralite-la-mecque-v1.pdf"
+  },
+  {
+    "slug": "quand-la-faiblesse-de-jugement-fr-final",
+    "titre": "Quand La Faiblesse De Jugement Fr Final",
+    "accroche": "Ouvrage de 17 pages au format PDF",
+    "description": "Quand La Faiblesse De Jugement Fr Final — ouvrage de 17 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 17,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/quand-la-faiblesse-de-jugement-fr-final.pdf"
   }
 ]

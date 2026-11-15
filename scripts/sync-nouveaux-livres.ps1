@@ -43,7 +43,7 @@ try {
 
     $prevErr = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
-    git pull --rebase origin main 2>&1 | Out-Null
+    git pull --rebase --autostash origin main 2>&1 | Out-Null
     $pullExit = $LASTEXITCODE
     $ErrorActionPreference = $prevErr
     if ($pullExit -ne 0) {

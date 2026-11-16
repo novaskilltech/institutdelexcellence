@@ -381,34 +381,6 @@
     "langue": "Français"
   },
   {
-    "slug": "livre-coloriage-merveilles-creation-tome-2-6-8-ans",
-    "titre": "Livre de Coloriage — Les Merveilles de la Création — Tome 2 (6–8 ans)",
-    "accroche": "35 planches d’océans, étoiles et géométrie islamique sans visages",
-    "description": "Livre de coloriage éthique pour les 6–8 ans (37 pages) : 35 planches d’océans, d’étoiles et de géométrie islamique, entièrement sans représentation de visages.",
-    "collection": "Les Merveilles de la Création",
-    "categorie": "Livres payants",
-    "categorie_id": "payants",
-    "prix": "4,90 €",
-    "payant": true,
-    "pages": 37,
-    "date": "Novembre 2026",
-    "langue": "Français"
-  },
-  {
-    "slug": "livre-coloriage-merveilles-creation-tome-3-8-10-ans",
-    "titre": "Livre de Coloriage — Les Merveilles de la Création — Tome 3 (8–10 ans)",
-    "accroche": "41 planches d’architecture, lanternes et rosaces complexes sans visages",
-    "description": "Livre de coloriage éthique pour les 8–10 ans (43 pages) : 41 planches détaillées d’architecture, de lanternes et de rosaces complexes, entièrement sans représentation de visages.",
-    "collection": "Les Merveilles de la Création",
-    "categorie": "Livres payants",
-    "categorie_id": "payants",
-    "prix": "4,90 €",
-    "payant": true,
-    "pages": 43,
-    "date": "Novembre 2026",
-    "langue": "Français"
-  },
-  {
     "slug": "le-parfum-institut-excellence-edition-corrigee-2026",
     "titre": "Le parfum, un art de vivre dans la civilisation musulmane",
     "accroche": "Du musc prophétique aux parfums des califes",

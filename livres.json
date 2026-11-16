@@ -393,5 +393,17 @@
     "pdf": "pdfs/le-parfum-institut-excellence-edition-corrigee-2026.pdf",
     "auteur": "Salah Eddine Ahmed Abou Souleymane",
     "langue": "Français"
+  },
+  {
+    "slug": "accueillir-la-mort-famille-nouvelle-couverture-a5",
+    "titre": "Accueillir La Mort Famille Nouvelle Couverture A5",
+    "accroche": "Ouvrage de 23 pages au format PDF",
+    "description": "Accueillir La Mort Famille Nouvelle Couverture A5 — ouvrage de 23 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 23,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/accueillir-la-mort-famille-nouvelle-couverture-a5.pdf"
   }
 ]

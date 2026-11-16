@@ -252,5 +252,18 @@
     "date": "Novembre 2026",
     "pdf": "pdfs/une-table-une-famille-une-benediction-livret-a5.pdf",
     "langue": "Français"
+  },
+  {
+    "slug": "sharh-nuzhat-al-mushtagheleen-ibn-al-qasih-a5-couverture-signee",
+    "titre": "شرح نزهة المشتغلين في أحكام النون الساكنة والتنوين",
+    "accroche": "Ouvrage de 17 pages au format PDF",
+    "description": "شرح نزهة المشتغلين في أحكام النون الساكنة والتنوين — ouvrage de 17 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 17,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/sharh-nuzhat-al-mushtagheleen-ibn-al-qasih-a5-couverture-signee.pdf",
+    "auteur": "صلاح الدين أحمد أبو سليمان"
   }
 ]

@@ -256,27 +256,29 @@
   {
     "slug": "sharh-nuzhat-al-mushtagheleen-ibn-al-qasih-a5-couverture-signee",
     "titre": "شرح نزهة المشتغلين في أحكام النون الساكنة والتنوين",
-    "accroche": "Ouvrage de 17 pages au format PDF",
-    "description": "شرح نزهة المشتغلين في أحكام النون الساكنة والتنوين — ouvrage de 17 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "accroche": "شرح تعليمي مختصر وميسّر لرسالة الإمام ابن القاصح (ت ٨٠١ هـ)",
+    "description": "شرح مبسّط وميسّر للمبتدئين لرسالة «نزهة المشتغلين في أحكام النون الساكنة والتنوين» للإمام أبي البقاء علي بن عثمان بن القاصح، مع أمثلة قرآنية واضحة وتنبيهات وتدريبات مع الإجابات (مقاس A5).",
+    "collection": "مختصرات علم التجويد",
+    "categorie": "Sciences du Coran",
+    "categorie_id": "coran",
     "pages": 17,
     "date": "Novembre 2026",
     "pdf": "pdfs/sharh-nuzhat-al-mushtagheleen-ibn-al-qasih-a5-couverture-signee.pdf",
-    "auteur": "صلاح الدين أحمد أبو سليمان"
+    "auteur": "صلاح الدين أحمد أبو سليمان",
+    "langue": "العربية"
   },
   {
     "slug": "1",
     "titre": "بطاقات النوال في شرح تحفة الأطفال",
-    "accroche": "Ouvrage de 206 pages au format PDF",
-    "description": "بطاقات النوال في شرح تحفة الأطفال — ouvrage de 206 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "accroche": "أفهم • أستحضر • أطبّق — ١٠٣ بطاقات تعليمية على نظم الإمام سليمان الجمزوري",
+    "description": "شرح تدريجي موجز لأبيات تحفة الأطفال في علم التجويد في ١٠٣ بطاقات تعليمية تساعد على فهم الحكم واستحضاره وتطبيقه وفق رواية حفص عن عاصم من طريق الشاطبية.",
+    "collection": "معهد الإحسان لتعليم القرآن",
+    "categorie": "Sciences du Coran",
+    "categorie_id": "coran",
     "pages": 206,
     "date": "Novembre 2026",
     "pdf": "pdfs/1.pdf",
-    "auteur": "صلاح الدين أحمد أبو سليمان"
+    "auteur": "صلاح الدين أحمد أبو سليمان",
+    "langue": "العربية"
   }
 ]

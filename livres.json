@@ -411,13 +411,15 @@
   {
     "slug": "le-parfum-institut-excellence-edition-corrigee-2026",
     "titre": "Le parfum, un art de vivre dans la civilisation musulmane",
-    "accroche": "Ouvrage de 26 pages au format PDF",
-    "description": "Le parfum, un art de vivre dans la civilisation musulmane — ouvrage de 26 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "accroche": "Du musc prophétique aux parfums des califes",
+    "description": "Promenade historique et culturelle à travers l’art du parfum dans la civilisation musulmane : senteurs du quotidien prophétique, grandes matières (musc, oud, santal, ambre, rose, camphre, oliban), recettes des savants, bakhour, al-Andalus et lexique des senteurs.",
+    "collection": "Histoire & Civilisation",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 26,
     "date": "Novembre 2026",
-    "pdf": "pdfs/le-parfum-institut-excellence-edition-corrigee-2026.pdf"
+    "pdf": "pdfs/le-parfum-institut-excellence-edition-corrigee-2026.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Souleymane",
+    "langue": "Français"
   }
 ]

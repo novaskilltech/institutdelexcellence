@@ -265,5 +265,18 @@
     "date": "Novembre 2026",
     "pdf": "pdfs/sharh-nuzhat-al-mushtagheleen-ibn-al-qasih-a5-couverture-signee.pdf",
     "auteur": "صلاح الدين أحمد أبو سليمان"
+  },
+  {
+    "slug": "1",
+    "titre": "بطاقات النوال في شرح تحفة الأطفال",
+    "accroche": "Ouvrage de 206 pages au format PDF",
+    "description": "بطاقات النوال في شرح تحفة الأطفال — ouvrage de 206 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 206,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/1.pdf",
+    "auteur": "صلاح الدين أحمد أبو سليمان"
   }
 ]

@@ -29,6 +29,7 @@ CATEGORIES = {
     "education": "Éducation",
     "coran": "Sciences du Coran",
     "fiqh": "Jurisprudence",
+    "payants": "Livres payants",
 }
 MONTHS_FR = [
     "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",

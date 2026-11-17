@@ -407,5 +407,43 @@
     "pdf": "pdfs/accueillir-la-mort-famille-nouvelle-couverture-a5.pdf",
     "auteur": "Salah Eddine Ahmed Abou Souleymane",
     "langue": "Français"
+  },
+  {
+    "slug": "le-voile-une-adoration-qui-traverse-les-siecles-edition-a5",
+    "titre": "Le voile : une adoration qui traverse les siècles",
+    "accroche": "Ouvrage de 75 pages au format PDF",
+    "description": "Le voile : une adoration qui traverse les siècles — ouvrage de 75 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 75,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/le-voile-une-adoration-qui-traverse-les-siecles-edition-a5.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
+  },
+  {
+    "slug": "quand-la-laicite-devient-une-religion-essai-a5-edition-chamois",
+    "titre": "Quand la laïcité devient une religion — Et que les croyants deviennent des hérétiques",
+    "accroche": "Ouvrage de 49 pages au format PDF",
+    "description": "Quand la laïcité devient une religion — Et que les croyants deviennent des hérétiques — ouvrage de 49 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 49,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/quand-la-laicite-devient-une-religion-essai-a5-edition-chamois.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Souleymane"
+  },
+  {
+    "slug": "risala-ila-al-muwazzafin-a5",
+    "titre": "رسالة إلى الموظفين في القطاع العام",
+    "accroche": "Ouvrage de 25 pages au format PDF",
+    "description": "رسالة إلى الموظفين في القطاع العام — ouvrage de 25 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 25,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/risala-ila-al-muwazzafin-a5.pdf"
   }
 ]

@@ -411,39 +411,43 @@
   {
     "slug": "le-voile-une-adoration-qui-traverse-les-siecles-edition-a5",
     "titre": "Le voile : une adoration qui traverse les siècles",
-    "accroche": "Ouvrage de 75 pages au format PDF",
-    "description": "Le voile : une adoration qui traverse les siècles — ouvrage de 75 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "accroche": "Fondements religieux, bienfaits individuels et sociaux, études scientifiques et réponses aux objections",
+    "description": "À la lumière du Coran, de la Sunna, de l’histoire, de la sociologie et des études scientifiques contemporaines, cet ouvrage étudie les bienfaits du voile pour la femme, l’homme et la communauté, tout en répondant aux objections fréquentes.",
+    "collection": "Foi, éthique et société",
+    "categorie": "Jurisprudence",
+    "categorie_id": "fiqh",
     "pages": 75,
     "date": "Novembre 2026",
     "pdf": "pdfs/le-voile-une-adoration-qui-traverse-les-siecles-edition-a5.pdf",
-    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   },
   {
     "slug": "quand-la-laicite-devient-une-religion-essai-a5-edition-chamois",
-    "titre": "Quand la laïcité devient une religion — Et que les croyants deviennent des hérétiques",
-    "accroche": "Ouvrage de 49 pages au format PDF",
-    "description": "Quand la laïcité devient une religion — Et que les croyants deviennent des hérétiques — ouvrage de 49 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
+    "titre": "Quand la laïcité devient une religion",
+    "accroche": "Et que les croyants deviennent des hérétiques — Essai critique sur la liberté de conscience, la neutralité de l’État et la place de l’islam en France",
+    "description": "Essai critique confrontant les principes de la loi de 1905 aux pratiques contemporaines, aux décisions du Défenseur des droits et à la jurisprudence européenne : liberté de conscience, neutralité de l’État et droit de discuter la loi.",
+    "collection": "Essai",
     "categorie": "Éducation",
     "categorie_id": "education",
     "pages": 49,
     "date": "Novembre 2026",
     "pdf": "pdfs/quand-la-laicite-devient-une-religion-essai-a5-edition-chamois.pdf",
-    "auteur": "Salah Eddine Ahmed Abou Souleymane"
+    "auteur": "Salah Eddine Ahmed Abou Souleymane",
+    "langue": "Français"
   },
   {
     "slug": "risala-ila-al-muwazzafin-a5",
     "titre": "رسالة إلى الموظفين في القطاع العام",
-    "accroche": "Ouvrage de 25 pages au format PDF",
-    "description": "رسالة إلى الموظفين في القطاع العام — ouvrage de 25 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
+    "accroche": "في أمانة الوظيفة، وحسن أداء العمل، وخدمة الناس، واحتساب الأجر عند الله",
+    "description": "رسالة تربوية وتذكيرية موجهة إلى العاملين في المرافق العمومية، تبيّن عظم أمانة الوظيفة العامة، والعدل بين المراجعين، وحفظ أوقات العمل، واحتساب الأجر عند الله في ضوء القرآن الكريم والسنة النبوية.",
+    "collection": "معهد الإحسان لتعليم القرآن",
     "categorie": "Éducation",
     "categorie_id": "education",
     "pages": 25,
-    "date": "Novembre 2026",
-    "pdf": "pdfs/risala-ila-al-muwazzafin-a5.pdf"
+    "date": "2026",
+    "pdf": "pdfs/risala-ila-al-muwazzafin-a5.pdf",
+    "auteur": "صلاح الدين أحمد أبو سليمان",
+    "langue": "العربية"
   }
 ]

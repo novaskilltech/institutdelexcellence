@@ -477,5 +477,18 @@
     "pdf": "pdfs/comment-la-civilisation-islamique-a-eclaire-l-europe.pdf",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "saladin-l-ascension-institut-de-l-excellence-2026-lecture-a5",
+    "titre": "Salâh ad-Dîn — L’ascension de Saladin",
+    "accroche": "Ouvrage de 60 pages au format PDF",
+    "description": "Salâh ad-Dîn — L’ascension de Saladin — ouvrage de 60 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 60,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/saladin-l-ascension-institut-de-l-excellence-2026-lecture-a5.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
   }
 ]

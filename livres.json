@@ -23,7 +23,9 @@
     "categorie_id": "coran",
     "pages": 37,
     "date": "Novembre 2026",
-    "pdf": "pdfs/le-waqf-et-libtida.pdf"
+    "pdf": "pdfs/le-waqf-et-libtida.pdf",
+    "auteur": "Sous la direction éditoriale de Salah Eddine Abou Soulaymane",
+    "langue": "Français"
   },
   {
     "slug": "se-tenir-devant-allah",
@@ -35,7 +37,9 @@
     "categorie_id": "priere",
     "pages": 44,
     "date": "Novembre 2026",
-    "pdf": "pdfs/se-tenir-devant-allah.pdf"
+    "pdf": "pdfs/se-tenir-devant-allah.pdf",
+    "auteur": "Institut de l’Excellence",
+    "langue": "Français"
   },
   {
     "slug": "leurs-premiers-pas-vers-la-priere",
@@ -47,7 +51,9 @@
     "categorie_id": "education",
     "pages": 20,
     "date": "Novembre 2026",
-    "pdf": "pdfs/leurs-premiers-pas-vers-la-priere.pdf"
+    "pdf": "pdfs/leurs-premiers-pas-vers-la-priere.pdf",
+    "auteur": "Institut de l’Excellence",
+    "langue": "Français"
   },
   {
     "slug": "la-ithar-fi-al-qurubat",
@@ -59,7 +65,8 @@
     "categorie_id": "fiqh",
     "pages": 20,
     "date": "Novembre 2026",
-    "pdf": "pdfs/la-ithar-fi-al-qurubat.pdf"
+    "pdf": "pdfs/la-ithar-fi-al-qurubat.pdf",
+    "langue": "Français"
   },
   {
     "slug": "le-conseil-en-islam-edition-enrichie-nouveau-lien",
@@ -100,7 +107,8 @@
     "pages": 20,
     "date": "Novembre 2026",
     "pdf": "pdfs/une-montagne-de-recompenses.pdf",
-    "langue": "Français"
+    "langue": "Français",
+    "auteur": "Institut de l’Excellence"
   },
   {
     "slug": "badirou-aux-bonnes-oeuvres-edition-imprimable-a5",
@@ -522,38 +530,45 @@
   },
   {
     "slug": "les-croisades-tome-ii-livret-avec-couverture",
-    "titre": "Les Croisades Tome Ii Livret Avec Couverture",
-    "accroche": "Ouvrage de 39 pages au format PDF",
-    "description": "Les Croisades Tome Ii Livret Avec Couverture — ouvrage de 39 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "titre": "Les Croisades — Tome II : Trente-cinq ans de chaos et de trahisons",
+    "accroche": "Trente-cinq ans de chaos et de trahisons (1099–1134) · Tome II",
+    "description": "De la chute de Jérusalem en 1099 à l’ascension de Zengî en 1134 : comprendre les divisions du monde musulman, le rôle d’Alep et de Damas, la parole d’al-Sulamî et les causes profondes de trente-cinq ans de fractures.",
+    "collection": "Histoires et civilisations",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 39,
     "date": "Novembre 2026",
-    "pdf": "pdfs/les-croisades-tome-ii-livret-avec-couverture.pdf"
+    "pdf": "pdfs/les-croisades-tome-ii-livret-avec-couverture.pdf",
+    "cover": "assets/img/couvertures/les-croisades-tome-ii-livret-avec-couverture.jpg",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   },
   {
     "slug": "livret-pourquoi-age-or-islamique-institut-excellence",
-    "titre": "Livret Pourquoi Age Or Islamique Institut Excellence",
-    "accroche": "Ouvrage de 40 pages au format PDF",
-    "description": "Livret Pourquoi Age Or Islamique Institut Excellence — ouvrage de 40 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "titre": "Pourquoi l’âge d’or islamique a-t-il pris fin ?",
+    "accroche": "Grandeur, fractures et héritage d’une civilisation du savoir",
+    "description": "Un essai historique sur l’essor intellectuel et scientifique du monde islamique, la puissance de ses réseaux de transmission, ce que recouvre réellement l’expression « âge d’or » et les dynamiques qui ont transformé cet héritage.",
+    "collection": "Histoires et civilisations",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 40,
     "date": "Novembre 2026",
-    "pdf": "pdfs/livret-pourquoi-age-or-islamique-institut-excellence.pdf"
+    "pdf": "pdfs/livret-pourquoi-age-or-islamique-institut-excellence.pdf",
+    "cover": "assets/img/couvertures/livret-pourquoi-age-or-islamique-institut-excellence.jpg",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   },
   {
     "slug": "saladin-tome-iv-edition-lecture",
-    "titre": "Saladin Tome Iv Edition Lecture",
-    "accroche": "Ouvrage de 52 pages au format PDF",
-    "description": "Saladin Tome Iv Edition Lecture — ouvrage de 52 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "titre": "Les Croisades — Tome IV : Salâh ad-Dîn",
+    "accroche": "Jérusalem reconquise et le crépuscule des États croisés · Tome IV",
+    "description": "De la patience politique qui précéda Hattîn à la reconquête de Jérusalem en 1187, puis à la troisième croisade et au siècle qui suivit : un récit historique consacré à Salâh ad-Dîn Yûsuf ibn Ayyûb et à ce qui demeure après une victoire.",
+    "collection": "Histoires et civilisations",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 52,
     "date": "Novembre 2026",
+<<<<<<< HEAD
     "pdf": "pdfs/saladin-tome-iv-edition-lecture.pdf"
   },
   {
@@ -567,5 +582,11 @@
     "pages": 49,
     "date": "Novembre 2026",
     "pdf": "pdfs/mehmed-ii-fatih-livret-couverture-modifiee-a5.pdf"
+=======
+    "pdf": "pdfs/saladin-tome-iv-edition-lecture.pdf",
+    "cover": "assets/img/couvertures/saladin-tome-iv-edition-lecture.jpg",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
+>>>>>>> 80dea74 (Complete missing metadata and covers for published PDFs + Mehmed II sidecar)
   }
 ]

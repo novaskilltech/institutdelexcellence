@@ -453,14 +453,15 @@
   {
     "slug": "sois-indulgent-edition-internet",
     "titre": "Sois indulgent, comme tu espères être pardonné",
-    "accroche": "Ouvrage de 44 pages au format PDF",
-    "description": "Sois indulgent, comme tu espères être pardonné — ouvrage de 44 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "accroche": "L’art de pardonner, de patienter et de conseiller ses frères et sœurs en islam",
+    "description": "À travers le Coran, la Sunna et les récits des prophètes, cet ouvrage invite à contenir sa colère, corriger sans humilier, conseiller avec sagesse et pratiquer la patience et le pardon sans jamais abandonner la justice.",
     "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "categorie": "Prière & spiritualité",
+    "categorie_id": "priere",
     "pages": 44,
     "date": "Novembre 2026",
     "pdf": "pdfs/sois-indulgent-edition-internet.pdf",
-    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   }
 ]

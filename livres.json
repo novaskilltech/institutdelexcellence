@@ -630,5 +630,17 @@
     "date": "Novembre 2026",
     "pdf": "pdfs/avant-de-juger-ton-frere-livret-institut-de-l-excellence.pdf",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane"
+  },
+  {
+    "slug": "ibn-sina-mille-ans-d-heritage-institut-de-l-excellence",
+    "titre": "Ibn Sina Mille Ans D Heritage Institut De L Excellence",
+    "accroche": "Ouvrage de 43 pages au format PDF",
+    "description": "Ibn Sina Mille Ans D Heritage Institut De L Excellence — ouvrage de 43 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 43,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/ibn-sina-mille-ans-d-heritage-institut-de-l-excellence.pdf"
   }
 ]

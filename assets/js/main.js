@@ -1,10 +1,11 @@
 (()=>{
-  const filters=[...document.querySelectorAll('[data-filter]')],cards=[...document.querySelectorAll('[data-book]')],search=document.querySelector('#book-search'),empty=document.querySelector('#empty-results'),count=document.querySelector('#results-count');
+  const filters=[...document.querySelectorAll('[data-filter]')],cards=[...document.querySelectorAll('[data-book]')],groups=[...document.querySelectorAll('[data-category-group]')],search=document.querySelector('#book-search'),empty=document.querySelector('#empty-results'),count=document.querySelector('#results-count');
   let active='tout';
   const normalize=v=>(v||'').toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   const render=()=>{
     const term=normalize(search?.value.trim());let visible=0;
     for(const card of cards){const matchesCategory=active==='tout'||card.dataset.category===active;const matchesText=normalize(card.dataset.search).includes(term);const show=matchesCategory&&matchesText;card.hidden=!show;card.style.display=show?'':'none';if(show)visible++;}
+    for(const group of groups){const groupVisible=[...group.querySelectorAll('[data-book]')].filter(c=>!c.hidden).length;group.hidden=groupVisible===0;group.style.display=groupVisible===0?'none':'';const badge=group.querySelector('[data-category-count]');if(badge)badge.textContent=`${groupVisible} ouvrage${groupVisible>1?'s':''}`;}
     if(empty)empty.classList.toggle('show',visible===0);
     if(count)count.textContent=`${visible} ouvrage${visible>1?'s':''} affiché${visible>1?'s':''}`;
   };

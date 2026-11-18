@@ -59,14 +59,16 @@ try:
         for line in lines[:4]:
             d.text((65,top),line,font=F(SERIF_FONTS,51 if book else 52),fill=(249,248,239))
             top+=80
-        subtitle=(book['accroche'] if book else 'Livres et livrets gratuits · Lecture libre')
+        subtitle=(book['accroche'] if book else 'Maison d’édition · Spiritualité, Coran, fiqh, histoire & éducation')
         sublines=textwrap.wrap(subtitle,width=52)
         y=max(420,top+8)
         for line in sublines[:2]:
             d.text((66,y),line,font=F(SANS_FONTS,21),fill=(205,215,202));y+=32
-        d.rounded_rectangle((65,550,268,591),radius=18,fill=(239,230,210))
-        pill_txt=(book.get('prix') or 'ÉDITION PAYANTE').upper() if (book and (book.get('categorie_id')=='payants' or book.get('payant') or book.get('prix'))) else 'ACCÈS GRATUIT'
-        d.text((89,558),pill_txt,font=F(SANS_FONTS,18),fill=(23,61,51))
+        pill_font=F(SANS_FONTS,18)
+        pill_txt=(book.get('prix') or 'ÉDITION PAYANTE').upper() if (book and (book.get('categorie_id')=='payants' or book.get('payant') or book.get('prix'))) else ('MAISON D’ÉDITION · ACCÈS LIBRE' if not book else 'ACCÈS GRATUIT')
+        tb=d.textbbox((0,0),pill_txt,font=pill_font)
+        d.rounded_rectangle((65,550,65+(tb[2]-tb[0])+48,591),radius=18,fill=(239,230,210))
+        d.text((89,558),pill_txt,font=pill_font,fill=(23,61,51))
         if book:
             cover=Image.open(ROOT/book['cover']).convert('RGB')
             cover.thumbnail((310,515),Image.Resampling.LANCZOS)
@@ -75,9 +77,21 @@ try:
             x=1001-cover.width//2;y=(H-cover.height)//2
             im.paste(shadow,(x-10,y-10),shadow)
             im.paste(cover,(x,y))
+        else:
+            showcase=[books[i] for i in (0,len(books)//2,len(books)-1) if i<len(books)]
+            positions=[(835,145,210,330),(1015,105,220,350),(925,215,225,360)]
+            for b_item,(px,py,mw,mh) in zip(showcase,positions):
+                c=Image.open(ROOT/b_item['cover']).convert('RGB')
+                c.thumbnail((mw,mh),Image.Resampling.LANCZOS)
+                sh=Image.new('RGBA',(c.width+16,c.height+16),(0,0,0,0))
+                sh.paste((0,0,0,50),(6,8,c.width+13,c.height+15))
+                im.paste(sh,(px-8,py-8),sh)
+                im.paste(c,(px,py))
         return im
     for b in books:og_image(b).save(ROOT/'assets/img/partage'/f"{b['slug']}.jpg",quality=88,optimize=True)
-    og_image().save(ROOT/'assets/img/partage/institut-excellence.jpg',quality=89,optimize=True)
+    home_og=og_image()
+    home_og.save(ROOT/'assets/img/partage/institut-excellence.jpg',quality=89,optimize=True)
+    home_og.save(ROOT/'assets/img/partage/institut-excellence.png',optimize=True)
 except ImportError:
     print('Pillow absent : prévisualisations OpenGraph non régénérées')
 
@@ -90,6 +104,7 @@ def meta(title,description,url,og):
     canonical=f'<link rel="canonical" href="{h(absolute(url))}">' if SITE_URL else ''
     ogurl=f'<meta property="og:url" content="{h(absolute(url))}">' if SITE_URL else ''
     img=absolute(og)
+    secure=f'<meta property="og:image:secure_url" content="{h(img)}">' if img.startswith('https://') else ''
     return f'''<meta name="description" content="{h(description)}">
 <meta property="og:type" content="{'book' if url!='/' else 'website'}">
 <meta property="og:locale" content="fr_FR">
@@ -97,8 +112,8 @@ def meta(title,description,url,og):
 <meta property="og:title" content="{h(title)}">
 <meta property="og:description" content="{h(description)}">
 <meta property="og:image" content="{h(img)}">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{h(title)}"><meta name="twitter:description" content="{h(description)}"><meta name="twitter:image" content="{h(img)}">
+{secure}<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{h(title)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{h(title)}"><meta name="twitter:description" content="{h(description)}"><meta name="twitter:image" content="{h(img)}"><meta name="twitter:image:alt" content="{h(title)}">
 {canonical}{ogurl}'''
 
 def header(prefix):
@@ -129,11 +144,12 @@ categories=[('tout','Tous les livres'),('histoires','Biographies'),('priere','Pr
 filters=''.join(f'<button type="button" class="filter-btn" data-filter="{h(key)}" aria-pressed="{str(i==0).lower()}">{h(label)}</button>' for i,(key,label) in enumerate(categories))
 hero_books=[books[i] for i in (2,1,3) if i<len(books)] or books[:3]
 hero_imgs=''.join(f'<img class="hero-book {cls}" src="{b["cover"]}" alt="" aria-hidden="true" loading="eager">' for cls,b in zip(['one','two','three'],hero_books))
-home_content=f'''<main id="main"><section class="hero" id="accueil"><div class="container hero-grid"><div><span class="eyebrow">Maison d’édition · Accès libre</span><h1 class="serif">Le savoir se <em>transmet.</em><br>Il se partage.</h1><p class="hero-copy">Des livres conçus pour comprendre, apprendre et progresser. Découvrez les ouvrages de l’Institut de l’Excellence, disponibles gratuitement au format PDF.</p><div class="hero-actions"><a class="btn btn-primary" href="#catalogue">Explorer les ouvrages <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#mission">Découvrir l’Institut</a></div><div class="hero-notes"><span><span class="mini-check" aria-hidden="true">✦</span> Lecture libre</span><span><span class="mini-check" aria-hidden="true">✦</span> PDF gratuits</span><span><span class="mini-check" aria-hidden="true">✦</span> Sans inscription</span></div></div><div class="hero-art" aria-label="Sélection de couvertures de nos livres">{hero_imgs}<div class="hero-seal"><span aria-hidden="true">✦</span> {len(books)} ouvrages à découvrir</div></div></div></section>
+home_wa_text=quote(f"Institut de l’Excellence — Maison d’édition : ouvrages de spiritualité, sciences du Coran, fiqh, histoire et éducation en accès libre {absolute('/')}" if SITE_URL else "Institut de l’Excellence — Maison d’édition")
+home_content=f'''<main id="main"><section class="hero" id="accueil"><div class="container hero-grid"><div><span class="eyebrow">Maison d’édition · Accès libre</span><h1 class="serif">Le savoir se <em>transmet.</em><br>Il se partage.</h1><p class="hero-copy">Maison d’édition de l’Institut de l’Excellence : des livres de spiritualité, sciences du Coran, fiqh, histoire et éducation conçus pour comprendre, apprendre et progresser.</p><div class="hero-actions"><a class="btn btn-primary" href="#catalogue">Explorer les ouvrages <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#mission">Découvrir l’Institut</a></div><div class="hero-notes"><span><span class="mini-check" aria-hidden="true">✦</span> Lecture libre</span><span><span class="mini-check" aria-hidden="true">✦</span> PDF gratuits</span><span><span class="mini-check" aria-hidden="true">✦</span> Sans inscription</span></div></div><div class="hero-art" aria-label="Sélection de couvertures de nos livres">{hero_imgs}<div class="hero-seal"><span aria-hidden="true">✦</span> {len(books)} ouvrages à découvrir</div></div></div></section>
 <section class="section catalogue" id="catalogue"><div class="container"><div class="section-header"><div><span class="eyebrow">Notre bibliothèque</span><h2 class="serif">Les ouvrages de l’Institut</h2></div><p class="section-intro">Des textes de transmission, de pédagogie et de réflexion, à consulter ou à conserver gratuitement.</p></div><div class="toolbar"><div class="filters" role="group" aria-label="Filtrer les livres par catégorie">{filters}</div><label class="search" for="book-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher un ouvrage</span><input id="book-search" type="search" placeholder="Rechercher un livre…" autocomplete="off"></label></div><p class="results-count" id="results-count" role="status" aria-live="polite">{len(books)} ouvrages affichés</p><div class="book-grid" id="books">{''.join(card(b) for b in books)}</div><div class="empty-state" id="empty-results"><p>Aucun livre ne correspond à cette recherche.</p><p>Essayez un autre mot ou sélectionnez « Tous les livres ».</p></div></div></section>
 <section class="section mission" id="mission"><div class="container"><div class="mission-grid"><div><span class="eyebrow">La vocation de l’Institut</span><blockquote>Éditer des livres qui rendent les savoirs <em>plus clairs, plus proches et plus utiles.</em></blockquote></div><div class="mission-copy"><p><strong>Notre ligne éditoriale :</strong> une lecture accessible sans renoncer à la rigueur, une présentation soignée et des références permettant d’aller plus loin.</p><p>Les publications sont offertes en lecture et au téléchargement. La gratuité ne supprime pas les droits d’auteur : chaque ouvrage conserve ses mentions et ses conditions d’utilisation.</p></div></div><div class="steps"><div class="step"><span class="step-symbol" aria-hidden="true">✧</span> Pédagogie accessible</div><div class="step"><span class="step-symbol" aria-hidden="true">◈</span> Sources & références</div><div class="step"><span class="step-symbol" aria-hidden="true">⌁</span> Transmission libre</div></div></div></section>
-<section class="promise"><div class="container promise-grid"><div><span class="eyebrow">Une bibliothèque ouverte</span><h2>Un livre peut faire la différence.</h2><p>Choisissez un titre, lisez-le en ligne ou téléchargez son PDF.</p></div><a class="btn" href="#catalogue">Consulter le catalogue <span aria-hidden="true">↗</span></a></div></section></main>'''
-(ROOT/'index.html').write_text(shell('Institut de l’Excellence — Maison d’édition | Livres gratuits','Bibliothèque de l’Institut de l’Excellence : livres de spiritualité, sciences du Coran, fiqh, éducation et biographies, en lecture et téléchargement PDF gratuits.','/','assets/img/partage/institut-excellence.jpg',home_content),encoding='utf-8')
+<section class="promise"><div class="container promise-grid"><div><span class="eyebrow">Une bibliothèque ouverte</span><h2>Un livre peut faire la différence.</h2><p>Choisissez un titre, lisez-le en ligne, téléchargez son PDF ou partagez l’Institut.</p></div><div class="hero-actions"><a class="btn" href="#catalogue">Consulter le catalogue <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="https://wa.me/?text={home_wa_text}" target="_blank" rel="noopener">Partager sur WhatsApp</a></div></div></section></main>'''
+(ROOT/'index.html').write_text(shell('Institut de l’Excellence — Maison d’édition | Savoirs, spiritualité & histoire','Maison d’édition de l’Institut de l’Excellence : ouvrages de spiritualité, sciences du Coran, fiqh, histoire, biographies, éducation et calligraphie en lecture libre et éditions PDF.','/','assets/img/partage/institut-excellence.jpg',home_content),encoding='utf-8')
 
 for b in books:
     slug=b['slug'];prefix='../../'

@@ -36,6 +36,10 @@ try:
     from PIL import Image,ImageDraw,ImageFont
     SERIF_FONTS=['/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf','C:/Windows/Fonts/georgiab.ttf','C:/Windows/Fonts/georgia.ttf']
     SANS_FONTS=['/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf','C:/Windows/Fonts/arial.ttf','C:/Windows/Fonts/segoeui.ttf']
+    ARABIC_BOLD_FONTS=['/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf','C:/Windows/Fonts/tahomabd.ttf','C:/Windows/Fonts/arialbd.ttf','C:/Windows/Fonts/segoeuib.ttf']
+    ARABIC_FONTS=['/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf','C:/Windows/Fonts/tahoma.ttf','C:/Windows/Fonts/arial.ttf','C:/Windows/Fonts/segoeui.ttf']
+    def is_arabic_book(b):
+        return b is not None and (b.get('langue')=='العربية' or any('\u0600'<=c<='\u06ff' for c in str(b.get('titre',''))))
     def F(paths,size):
         for p in paths:
             if Path(p).is_file():
@@ -44,31 +48,51 @@ try:
         return ImageFont.load_default()
     def og_image(book=None):
         W,H=1200,630;im=Image.new('RGB',(W,H),(19,56,47));d=ImageDraw.Draw(im)
+        ar=is_arabic_book(book)
         # Art direction: luminous green circles and small brass ornaments
         d.ellipse((650,-340,1390,390),fill=(25,68,56))
         d.ellipse((790,330,1230,770),outline=(128,115,78),width=2)
-        d.line((65,104,180,104),fill=(184,144,83),width=3)
-        d.text((65,57),'INSTITUT DE L’EXCELLENCE',font=F(SANS_FONTS,25),fill=(230,209,164))
+        if ar:
+            d.line((645,104,760,104),fill=(184,144,83),width=3)
+            d.text((760,57),'معهد التميّز للنشر',font=F(ARABIC_BOLD_FONTS,25),fill=(230,209,164),anchor='ra',direction='rtl',language='ar')
+        else:
+            d.line((65,104,180,104),fill=(184,144,83),width=3)
+            d.text((65,57),'INSTITUT DE L’EXCELLENCE',font=F(SANS_FONTS,25),fill=(230,209,164))
         title=book['titre'] if book else 'Des savoirs à transmettre.\nDes livres à partager.'
-        max_chars=26 if book else 29
+        max_chars=28 if ar else (26 if book else 29)
         # Split by character length without cutting words.
         lines=[]
         for segment in title.split('\n'):
             lines+=textwrap.wrap(segment,width=max_chars,break_long_words=False,break_on_hyphens=False)
         top=161
         for line in lines[:4]:
-            d.text((65,top),line,font=F(SERIF_FONTS,51 if book else 52),fill=(249,248,239))
-            top+=80
+            if ar:
+                d.text((760,top),line,font=F(ARABIC_BOLD_FONTS,46),fill=(249,248,239),anchor='ra',direction='rtl',language='ar')
+                top+=74
+            else:
+                d.text((65,top),line,font=F(SERIF_FONTS,51 if book else 52),fill=(249,248,239))
+                top+=80
         subtitle=(book['accroche'] if book else 'Maison d’édition · Spiritualité, Coran, fiqh, histoire & éducation')
         sublines=textwrap.wrap(subtitle,width=52)
         y=max(420,top+8)
         for line in sublines[:2]:
-            d.text((66,y),line,font=F(SANS_FONTS,21),fill=(205,215,202));y+=32
-        pill_font=F(SANS_FONTS,18)
-        pill_txt=(book.get('prix') or 'ÉDITION PAYANTE').upper() if (book and (book.get('categorie_id')=='payants' or book.get('payant') or book.get('prix'))) else ('MAISON D’ÉDITION · ACCÈS LIBRE' if not book else 'ACCÈS GRATUIT')
-        tb=d.textbbox((0,0),pill_txt,font=pill_font)
-        d.rounded_rectangle((65,550,65+(tb[2]-tb[0])+48,591),radius=18,fill=(239,230,210))
-        d.text((89,558),pill_txt,font=pill_font,fill=(23,61,51))
+            if ar:
+                d.text((760,y),line,font=F(ARABIC_FONTS,22),fill=(205,215,202),anchor='ra',direction='rtl',language='ar')
+            else:
+                d.text((66,y),line,font=F(SANS_FONTS,21),fill=(205,215,202))
+            y+=34
+        pill_font=F(ARABIC_BOLD_FONTS if ar else SANS_FONTS,18)
+        if ar:
+            pill_txt=(book.get('prix') or 'إصدار مدفوع') if (book.get('categorie_id')=='payants' or book.get('payant') or book.get('prix')) else 'مجاني · متاح للجميع'
+            tb=d.textbbox((0,0),pill_txt,font=pill_font)
+            pw=(tb[2]-tb[0])+48
+            d.rounded_rectangle((760-pw,550,760,591),radius=18,fill=(239,230,210))
+            d.text((736,558),pill_txt,font=pill_font,fill=(23,61,51),anchor='ra',direction='rtl',language='ar')
+        else:
+            pill_txt=(book.get('prix') or 'ÉDITION PAYANTE').upper() if (book and (book.get('categorie_id')=='payants' or book.get('payant') or book.get('prix'))) else ('MAISON D’ÉDITION · ACCÈS LIBRE' if not book else 'ACCÈS GRATUIT')
+            tb=d.textbbox((0,0),pill_txt,font=pill_font)
+            d.rounded_rectangle((65,550,65+(tb[2]-tb[0])+48,591),radius=18,fill=(239,230,210))
+            d.text((89,558),pill_txt,font=pill_font,fill=(23,61,51))
         if book:
             cover=Image.open(ROOT/book['cover']).convert('RGB')
             cover.thumbnail((310,515),Image.Resampling.LANCZOS)
@@ -100,15 +124,17 @@ ICON='''<svg width="29" height="29" viewBox="0 0 64 64" aria-hidden="true"><g fi
 def absolute(path):
     return SITE_URL+'/'+path.lstrip('/') if SITE_URL else path
 
-def meta(title,description,url,og):
+def meta(title,description,url,og,lang='fr'):
     canonical=f'<link rel="canonical" href="{h(absolute(url))}">' if SITE_URL else ''
     ogurl=f'<meta property="og:url" content="{h(absolute(url))}">' if SITE_URL else ''
     img=absolute(og)
     secure=f'<meta property="og:image:secure_url" content="{h(img)}">' if img.startswith('https://') else ''
+    locale='ar_AR' if lang=='ar' else 'fr_FR'
+    site_name='معهد التميّز للنشر' if lang=='ar' else 'Institut de l’Excellence'
     return f'''<meta name="description" content="{h(description)}">
 <meta property="og:type" content="{'book' if url!='/' else 'website'}">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="Institut de l’Excellence">
+<meta property="og:locale" content="{locale}">
+<meta property="og:site_name" content="{h(site_name)}">
 <meta property="og:title" content="{h(title)}">
 <meta property="og:description" content="{h(description)}">
 <meta property="og:image" content="{h(img)}">
@@ -116,18 +142,25 @@ def meta(title,description,url,og):
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{h(title)}"><meta name="twitter:description" content="{h(description)}"><meta name="twitter:image" content="{h(img)}"><meta name="twitter:image:alt" content="{h(title)}">
 {canonical}{ogurl}'''
 
-def header(prefix):
+def header(prefix,lang='fr'):
+    if lang=='ar':
+        return f'''<a class="skip" href="#main">الانتقال إلى المحتوى</a>
+<header class="site-header"><div class="container nav"><a class="brand" href="{prefix}index.html" aria-label="الرئيسية — معهد التميّز للنشر"><span class="brand-mark">{ICON}</span><span><span class="brand-name">معهد التميّز للنشر</span><span class="brand-sub">دار نشر</span></span></a>
+<nav class="nav-links" aria-label="التنقل الرئيسي"><a href="{prefix}index.html#catalogue">الإصدارات</a><a class="nav-about" href="{prefix}index.html#mission">رسالتنا</a><a class="nav-cta" href="{prefix}index.html#catalogue">اقرأ مجانًا</a></nav></div></header>'''
     return f'''<a class="skip" href="#main">Aller au contenu</a>
 <header class="site-header"><div class="container nav"><a class="brand" href="{prefix}index.html" aria-label="Accueil — Institut de l’Excellence"><span class="brand-mark">{ICON}</span><span><span class="brand-name">Institut de l’Excellence</span><span class="brand-sub">Maison d’édition</span></span></a>
 <nav class="nav-links" aria-label="Navigation principale"><a href="{prefix}index.html#catalogue">Les ouvrages</a><a class="nav-about" href="{prefix}index.html#mission">Notre mission</a><a class="nav-cta" href="{prefix}index.html#catalogue">Lire gratuitement</a></nav></div></header>'''
 
-def footer(prefix):
+def footer(prefix,lang='fr'):
+    if lang=='ar':
+        return f'''<footer class="footer"><div class="container"><div class="footer-top"><div><a class="brand" href="{prefix}index.html"><span class="brand-mark">{ICON}</span><span><span class="brand-name">معهد التميّز للنشر</span><span class="brand-sub">دار نشر</span></span></a><p class="footer-text">مؤلفات في النقل والتفكر، متاحة للقراءة والتحميل مجانًا.</p></div><nav class="footer-nav" aria-label="روابط التذييل"><a href="{prefix}index.html#catalogue">الفهرس</a><a href="{prefix}index.html#mission">رسالتنا</a><a href="{prefix}index.html#accueil">الرئيسية</a></nav></div><div class="footer-bottom"><span>© 2026 معهد التميّز للنشر · جميع الحقوق محفوظة على المؤلفات.</span><span>القراءة والتحميل مجانًا · حقوق المؤلف محفوظة.</span></div></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>'''
     return f'''<footer class="footer"><div class="container"><div class="footer-top"><div><a class="brand" href="{prefix}index.html"><span class="brand-mark">{ICON}</span><span><span class="brand-name">Institut de l’Excellence</span><span class="brand-sub">Maison d’édition</span></span></a><p class="footer-text">Des ouvrages de transmission et de réflexion, proposés en lecture et en téléchargement gratuits.</p></div><nav class="footer-nav" aria-label="Liens de pied de page"><a href="{prefix}index.html#catalogue">Catalogue</a><a href="{prefix}index.html#mission">Notre mission</a><a href="{prefix}index.html#accueil">Accueil</a></nav></div><div class="footer-bottom"><span>© 2026 Institut de l’Excellence · Tous droits réservés sur les ouvrages.</span><span>Consultation et téléchargement gratuits · Les droits d’auteur demeurent réservés.</span></div></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>'''
 
-def shell(title,description,url,og,content,prefix=''):
-    return f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#163b33"><title>{h(title)}</title>
-{meta(title,description,url,og)}
-<link rel="icon" href="{prefix}assets/img/favicon.svg" type="image/svg+xml"><link rel="manifest" href="{prefix}manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="{prefix}assets/css/style.css"></head><body>{header(prefix)}{content}{footer(prefix)}<script defer src="{prefix}assets/js/main.js"></script></body></html>'''
+def shell(title,description,url,og,content,prefix='',lang='fr'):
+    html_attr='lang="ar" dir="rtl"' if lang=='ar' else 'lang="fr"'
+    return f'''<!DOCTYPE html><html {html_attr}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#163b33"><title>{h(title)}</title>
+{meta(title,description,url,og,lang)}
+<link rel="icon" href="{prefix}assets/img/favicon.svg" type="image/svg+xml"><link rel="manifest" href="{prefix}manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="{prefix}assets/css/style.css"></head><body>{header(prefix,lang)}{content}{footer(prefix,lang)}<script defer src="{prefix}assets/js/main.js"></script></body></html>'''
 
 def format_excerpt(text):
     t=str(text).strip()
@@ -137,8 +170,22 @@ def is_paid(b):
     return b.get('categorie_id')=='payants' or bool(b.get('payant')) or bool(b.get('prix'))
 
 def card(b):
-    badge=b.get('prix') or 'Payant' if is_paid(b) else 'Gratuit'
-    return f'''<article class="book-card" data-book data-category="{h(b['categorie_id'])}" data-search="{h(' '.join([b['titre'],b['accroche'],b['description'],b['collection'],b['categorie'],b.get('auteur','')]))}"><a href="livres/{h(b['slug'])}/" class="book-media" aria-label="Découvrir {h(b['titre'])}"><img class="book-cover" src="{h(b['cover'])}" alt="Couverture du livre {h(b['titre'])}" loading="lazy"><span class="free-pill">{h(badge)}</span></a><div class="book-body"><span class="book-collection">{h(b['collection'])}</span><h3 class="book-title"><a href="livres/{h(b['slug'])}/">{h(b['titre'])}</a></h3><p class="book-excerpt">{h(format_excerpt(b['accroche']))}</p><div class="book-bottom"><span>{b['pages']} pages · PDF</span><a class="link-arrow" href="livres/{h(b['slug'])}/">Découvrir <span class="arrow" aria-hidden="true">→</span></a></div></div></article>'''
+    ar=is_arabic_book(b)
+    if ar:
+        badge=b.get('prix') or 'مدفوع' if is_paid(b) else 'مجاني'
+        dir_attr=' dir="rtl" lang="ar"'
+        aria_lbl=f"استعراض {b['titre']}"
+        alt_txt=f"غلاف كتاب {b['titre']}"
+        pages_txt=f"{b['pages']} صفحة · PDF"
+        more_txt='استعراض <span class="arrow" aria-hidden="true">←</span>'
+    else:
+        badge=b.get('prix') or 'Payant' if is_paid(b) else 'Gratuit'
+        dir_attr=''
+        aria_lbl=f"Découvrir {b['titre']}"
+        alt_txt=f"Couverture du livre {b['titre']}"
+        pages_txt=f"{b['pages']} pages · PDF"
+        more_txt='Découvrir <span class="arrow" aria-hidden="true">→</span>'
+    return f'''<article class="book-card" data-book data-category="{h(b['categorie_id'])}" data-search="{h(' '.join([b['titre'],b['accroche'],b['description'],b['collection'],b['categorie'],b.get('auteur','')]))}"><a href="livres/{h(b['slug'])}/" class="book-media" aria-label="{h(aria_lbl)}"><img class="book-cover" src="{h(b['cover'])}" alt="{h(alt_txt)}" loading="lazy"><span class="free-pill">{h(badge)}</span></a><div class="book-body"{dir_attr}><span class="book-collection">{h(b['collection'])}</span><h3 class="book-title"><a href="livres/{h(b['slug'])}/">{h(b['titre'])}</a></h3><p class="book-excerpt">{h(format_excerpt(b['accroche']))}</p><div class="book-bottom"><span>{pages_txt}</span><a class="link-arrow" href="livres/{h(b['slug'])}/">{more_txt}</a></div></div></article>'''
 
 categories=[('tout','Tous les livres'),('histoires','Biographies'),('priere','Prière'),('education','Éducation'),('coran','Coran'),('fiqh','Fiqh'),('payants','Livres payants')]
 filters=''.join(f'<button type="button" class="filter-btn" data-filter="{h(key)}" aria-pressed="{str(i==0).lower()}">{h(label)}</button>' for i,(key,label) in enumerate(categories))
@@ -158,23 +205,41 @@ for b in books:
     author_meta=f'<span>{h(b["auteur"])}</span>' if b.get('auteur') else ''
     share_url=absolute(f'/livres/{slug}/')
     wa_text=quote(f"{b['titre']} — {share_url}" if share_url.startswith('http') else b['titre'])
+    ar=is_arabic_book(b)
+    lang='ar' if ar else 'fr'
     paid=is_paid(b)
-    price_meta=f"<span><strong>{h(b.get('prix') or 'Payant')}</strong> · Édition payante</span>" if paid else '<span><strong>Gratuit</strong> · Accès libre</span>'
-    if paid:
-        buy_btn=f'<a class="btn btn-primary" href="{h(b["lien_achat"])}" target="_blank" rel="noopener">Commander / Acheter <span aria-hidden="true">↗</span></a>' if b.get('lien_achat') else '<span class="btn btn-primary" aria-disabled="true">Édition payante</span>'
-        sample_btn=f'<a class="btn btn-outline" href="{prefix}{h(b["extrait_pdf"])}" target="_blank" rel="noopener">Lire un extrait</a>' if b.get('extrait_pdf') else ''
-        action_btns=f'{buy_btn}{sample_btn}'
-        note_txt='Ouvrage payant protégé par le droit d’auteur.'
+    if ar:
+        price_meta=f"<span><strong>{h(b.get('prix') or 'مدفوع')}</strong> · إصدار مدفوع</span>" if paid else '<span><strong>مجاني</strong> · وصول مفتوح</span>'
+        if paid:
+            buy_btn=f'<a class="btn btn-primary" href="{h(b["lien_achat"])}" target="_blank" rel="noopener">اطلب / اشترِ <span aria-hidden="true">↗</span></a>' if b.get('lien_achat') else '<span class="btn btn-primary" aria-disabled="true">إصدار مدفوع</span>'
+            sample_btn=f'<a class="btn btn-outline" href="{prefix}{h(b["extrait_pdf"])}" target="_blank" rel="noopener">اقرأ مقتطفًا</a>' if b.get('extrait_pdf') else ''
+            action_btns=f'{buy_btn}{sample_btn}'
+            note_txt='إصدار مدفوع محمي بحقوق النشر.'
+        else:
+            action_btns=f'<a class="btn btn-primary" href="{prefix}{h(b["pdf"])}" target="_blank" rel="noopener">اقرأ مجانًا <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="{prefix}{h(b["pdf"])}" download="{h(slug)}.pdf">↓ تحميل PDF</a>'
+            note_txt='لا يتطلب تسجيلًا ولا دفعًا. العمل محمي بحقوق النشر.'
+        details=f'''<main id="main"><section class="detail"><div class="container"><a class="back-link" href="../../index.html#catalogue"><span aria-hidden="true">→</span> العودة إلى الفهرس</a><div class="detail-grid"><div class="detail-image"><img src="{prefix}{h(b['cover'])}" alt="غلاف كتاب {h(b['titre'])}"></div><div class="detail-info"><span class="eyebrow">{h(b['collection'])}</span><h1 class="detail-title">{h(b['titre'])}</h1><p class="detail-lead">{h(b['accroche'])}</p><p class="detail-description">{h(b['description'])}</p><div class="detail-meta">{price_meta}{author_meta}<span>{b['pages']} صفحة</span><span>{h(b['date'])}</span><span>PDF</span></div><div class="detail-actions">{action_btns}<a class="btn btn-outline" href="https://wa.me/?text={wa_text}" target="_blank" rel="noopener">واتساب</a><button type="button" class="btn btn-outline" data-share data-title="{h(b['titre'])}">مشاركة</button></div><p class="detail-note">{note_txt}</p></div></div></div></section><section class="other-books"><div class="container"><span class="eyebrow">تصفّح المزيد</span><h2>إصدارات أخرى للقراءة</h2><div class="other-grid">{other_html}</div></div></section></main>'''
+        publisher_name='معهد التميّز للنشر'
+        page_title=f"{b['titre']} | معهد التميّز للنشر"
     else:
-        action_btns=f'<a class="btn btn-primary" href="{prefix}{h(b["pdf"])}" target="_blank" rel="noopener">Lire gratuitement <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="{prefix}{h(b["pdf"])}" download="{h(slug)}.pdf">↓ Télécharger le PDF</a>'
-        note_txt='Aucune inscription et aucun paiement requis. Œuvre protégée par le droit d’auteur.'
-    details=f'''<main id="main"><section class="detail"><div class="container"><a class="back-link" href="../../index.html#catalogue"><span aria-hidden="true">←</span> Retour au catalogue</a><div class="detail-grid"><div class="detail-image"><img src="{prefix}{h(b['cover'])}" alt="Couverture de {h(b['titre'])}"></div><div class="detail-info"><span class="eyebrow">{h(b['collection'])}</span><h1 class="detail-title">{h(b['titre'])}</h1><p class="detail-lead">{h(b['accroche'])}</p><p class="detail-description">{h(b['description'])}</p><div class="detail-meta">{price_meta}{author_meta}<span>{b['pages']} pages</span><span>{h(b['date'])}</span><span>PDF</span></div><div class="detail-actions">{action_btns}<a class="btn btn-outline" href="https://wa.me/?text={wa_text}" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="btn btn-outline" data-share data-title="{h(b['titre'])}">Partager</button></div><p class="detail-note">{note_txt}</p></div></div></div></section><section class="other-books"><div class="container"><span class="eyebrow">Poursuivre la découverte</span><h2>D’autres ouvrages à lire</h2><div class="other-grid">{other_html}</div></div></section></main>'''
+        price_meta=f"<span><strong>{h(b.get('prix') or 'Payant')}</strong> · Édition payante</span>" if paid else '<span><strong>Gratuit</strong> · Accès libre</span>'
+        if paid:
+            buy_btn=f'<a class="btn btn-primary" href="{h(b["lien_achat"])}" target="_blank" rel="noopener">Commander / Acheter <span aria-hidden="true">↗</span></a>' if b.get('lien_achat') else '<span class="btn btn-primary" aria-disabled="true">Édition payante</span>'
+            sample_btn=f'<a class="btn btn-outline" href="{prefix}{h(b["extrait_pdf"])}" target="_blank" rel="noopener">Lire un extrait</a>' if b.get('extrait_pdf') else ''
+            action_btns=f'{buy_btn}{sample_btn}'
+            note_txt='Ouvrage payant protégé par le droit d’auteur.'
+        else:
+            action_btns=f'<a class="btn btn-primary" href="{prefix}{h(b["pdf"])}" target="_blank" rel="noopener">Lire gratuitement <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="{prefix}{h(b["pdf"])}" download="{h(slug)}.pdf">↓ Télécharger le PDF</a>'
+            note_txt='Aucune inscription et aucun paiement requis. Œuvre protégée par le droit d’auteur.'
+        details=f'''<main id="main"><section class="detail"><div class="container"><a class="back-link" href="../../index.html#catalogue"><span aria-hidden="true">←</span> Retour au catalogue</a><div class="detail-grid"><div class="detail-image"><img src="{prefix}{h(b['cover'])}" alt="Couverture de {h(b['titre'])}"></div><div class="detail-info"><span class="eyebrow">{h(b['collection'])}</span><h1 class="detail-title">{h(b['titre'])}</h1><p class="detail-lead">{h(b['accroche'])}</p><p class="detail-description">{h(b['description'])}</p><div class="detail-meta">{price_meta}{author_meta}<span>{b['pages']} pages</span><span>{h(b['date'])}</span><span>PDF</span></div><div class="detail-actions">{action_btns}<a class="btn btn-outline" href="https://wa.me/?text={wa_text}" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="btn btn-outline" data-share data-title="{h(b['titre'])}">Partager</button></div><p class="detail-note">{note_txt}</p></div></div></div></section><section class="other-books"><div class="container"><span class="eyebrow">Poursuivre la découverte</span><h2>D’autres ouvrages à lire</h2><div class="other-grid">{other_html}</div></div></section></main>'''
+        publisher_name='Institut de l’Excellence'
+        page_title=f"{b['titre']} | Institut de l’Excellence"
     # Schema.org JSON-LD helps search engines describe book pages.
-    schema={'@context':'https://schema.org','@type':'Book','name':b['titre'],'description':b['description'],'inLanguage':b.get('langue','fr'),'numberOfPages':b['pages'],'bookFormat':'https://schema.org/EBook','isAccessibleForFree':not paid,'publisher':{'@type':'Organization','name':'Institut de l’Excellence'},'image':absolute('/'+b['cover'])}
+    schema={'@context':'https://schema.org','@type':'Book','name':b['titre'],'description':b['description'],'inLanguage':'ar' if ar else b.get('langue','fr'),'numberOfPages':b['pages'],'bookFormat':'https://schema.org/EBook','isAccessibleForFree':not paid,'publisher':{'@type':'Organization','name':publisher_name},'image':absolute('/'+b['cover'])}
     if b.get('auteur'):schema['author']={'@type':'Person','name':b['auteur']}
     schema_tag='<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('</','<\\/')+'</script>'
     p=ROOT/'livres'/slug;p.mkdir(parents=True,exist_ok=True)
-    page=shell(f"{b['titre']} | Institut de l’Excellence",b['description'],f'/livres/{slug}/',f'assets/img/partage/{slug}.jpg',details,prefix).replace('</head>',schema_tag+'</head>')
+    page=shell(page_title,b['description'],f'/livres/{slug}/',f'assets/img/partage/{slug}.jpg',details,prefix,lang).replace('</head>',schema_tag+'</head>')
     (p/'index.html').write_text(page,encoding='utf-8')
 
 (ROOT/'manifest.webmanifest').write_text(json.dumps({'name':'Institut de l’Excellence — Maison d’édition','short_name':'Institut Excellence','description':'Bibliothèque gratuite des ouvrages de l’Institut de l’Excellence','start_url':'/','display':'standalone','background_color':'#faf8f2','theme_color':'#163b33','icons':[{'src':'assets/img/favicon.svg','sizes':'any','type':'image/svg+xml'}]},ensure_ascii=False,indent=2),encoding='utf-8')

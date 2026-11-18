@@ -256,8 +256,8 @@
   {
     "slug": "sharh-nuzhat-al-mushtagheleen-ibn-al-qasih-a5-couverture-signee",
     "titre": "شرح نزهة المشتغلين في أحكام النون الساكنة والتنوين",
-    "accroche": "Explication simplifiée en arabe de l’épître d’Ibn al-Qâsiḥ sur les règles du nûn sâkin et du tanwîn",
-    "description": "Ouvrage pédagogique en langue arabe (format A5, 17 pages) : commentaire accessible aux débutants de l’épître « Nuzhat al-Mushtaghilîn » de l’imam Abû al-Baqâ’ Ibn al-Qâsiḥ (m. 801 H) sur les règles de l’iẓhâr, de l’idghâm, de l’iqlâb et de l’ikhfâ’, avec exemples coraniques, conseils pratiques et exercices corrigés.",
+    "accroche": "شرح مبسط لرسالة ابن القاصح في أحكام النون الساكنة والتنوين",
+    "description": "كتاب تعليمي ميسّر باللغة العربية (17 صفحة) يقدّم شرحًا واضحًا لرسالة «نزهة المشتغلين» للإمام أبي البقاء ابن القاصح (ت 801 هـ) في أحكام الإظهار والإدغام والإقلاب والإخفاء، مع أمثلة قرآنية وتدريبات محلولة.",
     "collection": "مختصرات علم التجويد",
     "categorie": "Sciences du Coran",
     "categorie_id": "coran",
@@ -270,8 +270,8 @@
   {
     "slug": "1",
     "titre": "بطاقات النوال في شرح تحفة الأطفال",
-    "accroche": "103 fiches pédagogiques en arabe pour apprendre et appliquer Tuḥfat al-Aṭfâl (tajwîd)",
-    "description": "Ouvrage pédagogique en langue arabe (206 pages) proposant 103 cartes d’étude progressives (« Comprendre · Mémoriser · Appliquer ») autour du poème didactique « Tuḥfat al-Aṭfâl » de l’imam Sulaymân al-Jamzûrî, selon la lecture de Ḥafṣ ‘an ‘Âṣim par la voie de la Shâṭibiyya.",
+    "accroche": "103 بطاقات تعليمية لتعلم وتطبيق منظومة تحفة الأطفال في علم التجويد",
+    "description": "كتاب تعليمي باللغة العربية (206 صفحات) يقدّم 103 بطاقات منهجية متدرجة («فهم · حفظ · تطبيق») حول منظومة «تحفة الأطفال» للشيخ سليمان الجمزوري، وفق رواية حفص عن عاصم من طريق الشاطبية.",
     "collection": "معهد الإحسان لتعليم القرآن",
     "categorie": "Sciences du Coran",
     "categorie_id": "coran",

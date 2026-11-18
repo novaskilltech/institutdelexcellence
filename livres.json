@@ -587,5 +587,17 @@
     "cover": "assets/img/couvertures/mehmed-ii-fatih-livret-couverture-modifiee-a5.jpg",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "comment-le-moyen-orient-a-ete-transforme-a5-couverture-sans-visages",
+    "titre": "Comment Le Moyen Orient A Ete Transforme A5 Couverture Sans Visages",
+    "accroche": "Ouvrage de 59 pages au format PDF",
+    "description": "Comment Le Moyen Orient A Ete Transforme A5 Couverture Sans Visages — ouvrage de 59 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 59,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/comment-le-moyen-orient-a-ete-transforme-a5-couverture-sans-visages.pdf"
   }
 ]

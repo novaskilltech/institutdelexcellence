@@ -481,14 +481,15 @@
   {
     "slug": "saladin-l-ascension-institut-de-l-excellence-2026-lecture-a5",
     "titre": "Salâh ad-Dîn — L’ascension de Saladin",
-    "accroche": "Ouvrage de 60 pages au format PDF",
-    "description": "Salâh ad-Dîn — L’ascension de Saladin — ouvrage de 60 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "accroche": "De l’Égypte divisée à la libération de Jérusalem",
+    "description": "Récit historique commenté de l’ascension de Salâh ad-Dîn, de l’Égypte fatimide à la victoire de Ḥaṭṭîn et à la libération de Jérusalem : l’œuvre de Nûr ad-Dîn, les défis de l’unité, l’examen critique des sources, la chronologie et la bibliographie.",
+    "collection": "Biographies musulmanes",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 60,
     "date": "Novembre 2026",
     "pdf": "pdfs/saladin-l-ascension-institut-de-l-excellence-2026-lecture-a5.pdf",
-    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   }
 ]

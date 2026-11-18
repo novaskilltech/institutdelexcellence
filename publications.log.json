@@ -348,5 +348,19 @@
     "slug": "saladin-l-ascension-institut-de-l-excellence-2026-lecture-a5",
     "titre": "Salâh ad-Dîn — L’ascension de Saladin",
     "pages": 60
+  },
+  {
+    "timestamp": "2026-11-18T05:23:09.768213+00:00",
+    "action": "added",
+    "slug": "age-d-or-islamique-institut-de-l-excellence-lecture",
+    "titre": "L’âge d’or islamique — Bagdad et les savants de la connaissance",
+    "pages": 40
+  },
+  {
+    "timestamp": "2026-11-18T05:23:09.769797+00:00",
+    "action": "added",
+    "slug": "al-andalus-aux-portes-de-cordoue-lecture-a5",
+    "titre": "Al-Andalus – Aux portes de Cordoue (711-1031)",
+    "pages": 40
   }
 ]

@@ -491,5 +491,31 @@
     "pdf": "pdfs/saladin-l-ascension-institut-de-l-excellence-2026-lecture-a5.pdf",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "age-d-or-islamique-institut-de-l-excellence-lecture",
+    "titre": "L’âge d’or islamique — Bagdad et les savants de la connaissance",
+    "accroche": "Ouvrage de 40 pages au format PDF",
+    "description": "L’âge d’or islamique — Bagdad et les savants de la connaissance — ouvrage de 40 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 40,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/age-d-or-islamique-institut-de-l-excellence-lecture.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
+  },
+  {
+    "slug": "al-andalus-aux-portes-de-cordoue-lecture-a5",
+    "titre": "Al-Andalus – Aux portes de Cordoue (711-1031)",
+    "accroche": "Ouvrage de 40 pages au format PDF",
+    "description": "Al-Andalus – Aux portes de Cordoue (711-1031) — ouvrage de 40 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 40,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/al-andalus-aux-portes-de-cordoue-lecture-a5.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
   }
 ]

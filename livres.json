@@ -519,5 +519,41 @@
     "pdf": "pdfs/al-andalus-aux-portes-de-cordoue-lecture-a5.pdf",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "les-croisades-tome-ii-livret-avec-couverture",
+    "titre": "Les Croisades Tome Ii Livret Avec Couverture",
+    "accroche": "Ouvrage de 39 pages au format PDF",
+    "description": "Les Croisades Tome Ii Livret Avec Couverture — ouvrage de 39 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 39,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/les-croisades-tome-ii-livret-avec-couverture.pdf"
+  },
+  {
+    "slug": "livret-pourquoi-age-or-islamique-institut-excellence",
+    "titre": "Livret Pourquoi Age Or Islamique Institut Excellence",
+    "accroche": "Ouvrage de 40 pages au format PDF",
+    "description": "Livret Pourquoi Age Or Islamique Institut Excellence — ouvrage de 40 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 40,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/livret-pourquoi-age-or-islamique-institut-excellence.pdf"
+  },
+  {
+    "slug": "saladin-tome-iv-edition-lecture",
+    "titre": "Saladin Tome Iv Edition Lecture",
+    "accroche": "Ouvrage de 52 pages au format PDF",
+    "description": "Saladin Tome Iv Edition Lecture — ouvrage de 52 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 52,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/saladin-tome-iv-edition-lecture.pdf"
   }
 ]

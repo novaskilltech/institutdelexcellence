@@ -555,5 +555,17 @@
     "pages": 52,
     "date": "Novembre 2026",
     "pdf": "pdfs/saladin-tome-iv-edition-lecture.pdf"
+  },
+  {
+    "slug": "mehmed-ii-fatih-livret-couverture-modifiee-a5",
+    "titre": "Mehmed II al-Fâtih - Le conquérant de Constantinople (nouvelle couverture)",
+    "accroche": "Ouvrage de 49 pages au format PDF",
+    "description": "Mehmed II al-Fâtih - Le conquérant de Constantinople (nouvelle couverture) — ouvrage de 49 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 49,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/mehmed-ii-fatih-livret-couverture-modifiee-a5.pdf"
   }
 ]

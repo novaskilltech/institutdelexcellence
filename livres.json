@@ -617,5 +617,18 @@
     "cover": "assets/img/couvertures/les-croisades-tome-i-jerusalem-1099-institut-de-l-excellence.jpg",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "avant-de-juger-ton-frere-livret-institut-de-l-excellence",
+    "titre": "Avant de juger ton frère — La patience et le bon soupçon envers les musulmans",
+    "accroche": "Ouvrage de 44 pages au format PDF",
+    "description": "Avant de juger ton frère — La patience et le bon soupçon envers les musulmans — ouvrage de 44 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 44,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/avant-de-juger-ton-frere-livret-institut-de-l-excellence.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
   }
 ]

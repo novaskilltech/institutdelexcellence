@@ -662,14 +662,16 @@
   },
   {
     "slug": "avant-copernic-ibn-al-shatir-institut-excellence",
-    "titre": "Avant Copernic Ibn Al Shatir Institut Excellence",
-    "accroche": "Ouvrage de 72 pages au format PDF",
-    "description": "Avant Copernic Ibn Al Shatir Institut Excellence — ouvrage de 72 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "titre": "Avant Copernic, Ibn al-Shâtir",
+    "accroche": "Le savant de Damas et l’héritage oublié de l’astronomie musulmane",
+    "description": "Comment les modèles astronomiques élaborés à Damas au XIVe siècle par Ibn al-Shâtir ont-ils réapparu, deux siècles plus tard, dans l’œuvre de Nicolas Copernic ? Une enquête historique sur l’astronomie savante de langue arabe et la transmission des manuscrits.",
+    "collection": "Histoires et civilisations",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 72,
     "date": "Novembre 2026",
-    "pdf": "pdfs/avant-copernic-ibn-al-shatir-institut-excellence.pdf"
+    "pdf": "pdfs/avant-copernic-ibn-al-shatir-institut-excellence.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   }
 ]

@@ -621,38 +621,43 @@
   {
     "slug": "avant-de-juger-ton-frere-livret-institut-de-l-excellence",
     "titre": "Avant de juger ton frère — La patience et le bon soupçon envers les musulmans",
-    "accroche": "Ouvrage de 44 pages au format PDF",
-    "description": "Avant de juger ton frère — La patience et le bon soupçon envers les musulmans — ouvrage de 44 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "accroche": "La patience, le bon soupçon et la fraternité : juger avec justice et pardonner avec discernement",
+    "description": "Une méditation accessible sur la patience, la maîtrise de la colère, la fraternité islamique et la nécessité de vérifier les informations avant de juger autrui, appuyée sur le Coran et la Sunna.",
+    "collection": "Bibliothèque de la spiritualité musulmane",
+    "categorie": "Prière & spiritualité",
+    "categorie_id": "priere",
     "pages": 44,
     "date": "Novembre 2026",
     "pdf": "pdfs/avant-de-juger-ton-frere-livret-institut-de-l-excellence.pdf",
-    "auteur": "Salah Eddine Ahmed Abou Soulaymane"
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   },
   {
     "slug": "ibn-sina-mille-ans-d-heritage-institut-de-l-excellence",
-    "titre": "Ibn Sina Mille Ans D Heritage Institut De L Excellence",
-    "accroche": "Ouvrage de 43 pages au format PDF",
-    "description": "Ibn Sina Mille Ans D Heritage Institut De L Excellence — ouvrage de 43 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "titre": "Ibn Sînâ — Mille ans d’héritage",
+    "accroche": "Le médecin, le philosophe et le savoir qui traversa les siècles",
+    "description": "De Boukhara et la bibliothèque des Samanides au Canon de la médecine : un récit historique et intellectuel consacré à Ibn Sînâ, médecin, penseur et figure majeure de la civilisation musulmane.",
+    "collection": "Grandes Figures de la Civilisation Musulmane",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 43,
     "date": "Novembre 2026",
-    "pdf": "pdfs/ibn-sina-mille-ans-d-heritage-institut-de-l-excellence.pdf"
+    "pdf": "pdfs/ibn-sina-mille-ans-d-heritage-institut-de-l-excellence.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   },
   {
     "slug": "le-petrole-les-empires-et-le-moyen-orient-institut-de-l-excellence",
-    "titre": "Le Petrole Les Empires Et Le Moyen Orient Institut De L Excellence",
-    "accroche": "Ouvrage de 32 pages au format PDF",
-    "description": "Le Petrole Les Empires Et Le Moyen Orient Institut De L Excellence — ouvrage de 32 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "titre": "Le pétrole, les empires et le Moyen-Orient",
+    "accroche": "Quand les richesses d’une terre deviennent l’enjeu des puissances du monde — De la crise de Suez à la révolution iranienne",
+    "description": "De Mohammad Mossadegh en Iran à Gamal Abdel Nasser et la crise de Suez en 1956, jusqu’à Bagdad 1960 : une synthèse historique sur le rôle du pétrole et des rivalités d’empires au Moyen-Orient.",
+    "collection": "Histoires et civilisations",
+    "categorie": "Histoire & biographies",
+    "categorie_id": "histoires",
     "pages": 32,
     "date": "Novembre 2026",
-    "pdf": "pdfs/le-petrole-les-empires-et-le-moyen-orient-institut-de-l-excellence.pdf"
+    "pdf": "pdfs/le-petrole-les-empires-et-le-moyen-orient-institut-de-l-excellence.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   }
 ]

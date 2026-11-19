@@ -152,7 +152,9 @@ def process_inbox() -> int:
     had_error = False
 
     for pdf_path in pdfs:
-        sidecar_path = INBOX_DIR / f"{pdf_path.stem}.meta.json"
+        meta_path = INBOX_DIR / f"{pdf_path.stem}.meta.json"
+        alt_meta_path = INBOX_DIR / f"{pdf_path.stem}.json"
+        sidecar_path = meta_path if meta_path.is_file() else alt_meta_path
         sidecar = {}
         if sidecar_path.is_file():
             sidecar = json.loads(sidecar_path.read_text(encoding="utf-8"))

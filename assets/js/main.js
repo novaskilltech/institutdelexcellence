@@ -18,4 +18,24 @@
     try{if(navigator.share){await navigator.share({title,url:location.href});return;}if(navigator.clipboard){await navigator.clipboard.writeText(location.href);notify('Lien copié dans le presse-papiers');return;}notify('Copiez l’adresse de cette page pour la partager');}
     catch(e){if(e.name!=='AbortError')notify('Partage indisponible sur cet appareil');}
   }));
+  const API='https://abacus.jasoncameron.dev';
+  const safeKey=s=>String(s||'').toLowerCase().replace(/[^a-z0-9_-]/g,'-').slice(0,55);
+  const fmt=n=>Number(n||0).toLocaleString(document.documentElement.lang==='ar'?'ar-EG':'fr-FR');
+  const readCount=async(ns,key)=>{try{const r=await fetch(`${API}/get/${ns}/${key}`);if(!r.ok)return 0;const d=await r.json();return Number(d.value||0);}catch{return null;}};
+  const hitCount=async(ns,key)=>{try{const r=await fetch(`${API}/hit/${ns}/${key}`,{keepalive:true});if(!r.ok)return null;const d=await r.json();return Number(d.value||0);}catch{return null;}};
+  const visitEl=document.querySelector('[data-visit-counter]');
+  if(visitEl){
+    const ns=visitEl.dataset.visitCounter,key=safeKey(visitEl.dataset.visitKey||'visits'),out=visitEl.querySelector('[data-visit-count]');
+    const flag=`visited_${ns}_${key}`;
+    const done=sessionStorage.getItem(flag);
+    (done?readCount(ns,key):hitCount(ns,key)).then(v=>{if(v!==null&&out){out.textContent=fmt(v);if(!done)sessionStorage.setItem(flag,'1');}});
+  }
+  const dlEl=document.querySelector('[data-dl-counter]');
+  if(dlEl){
+    const ns=dlEl.dataset.dlNs||'institut-excellence-v1',slug=dlEl.dataset.dlCounter,key=safeKey('dl-'+slug),out=dlEl.querySelector('[data-dl-count]');
+    readCount(ns,key).then(v=>{if(v!==null&&out)out.textContent=fmt(v);});
+    document.querySelectorAll('[data-dl-trigger]').forEach(el=>el.addEventListener('click',()=>{
+      hitCount(ns,key).then(v=>{if(v!==null&&out)out.textContent=fmt(v);});
+    }));
+  }
 })();

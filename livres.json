@@ -673,5 +673,61 @@
     "pdf": "pdfs/avant-copernic-ibn-al-shatir-institut-excellence.pdf",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "al-murafiq-al-salih-fi-rihlat-al-umra",
+    "titre": "المرافق الصالح والمرافق السيّئ في رحلة العمرة",
+    "accroche": "بين نفحات المسك ودخان الكير — نصّ توعوي في أدب الصحبة وحفظ اللسان في رحلة العمرة",
+    "description": "نصّ توعوي باللغة العربية في أدب الصحبة، وحسن الخلق، وحفظ اللسان خلال رحلة العمرة (٣٧ صفحة، نسخة مصححة مع ترقيم الآيات).",
+    "collection": "التربية والسلوك",
+    "categorie": "Prière & spiritualité",
+    "categorie_id": "priere",
+    "pages": 37,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/al-murafiq-al-salih-fi-rihlat-al-umra.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "العربية"
+  },
+  {
+    "slug": "les-100-bienfaits-du-rappel-d-allah",
+    "titre": "Les 100 bienfaits du rappel d’Allah",
+    "accroche": "Comment le dhikr purifie, apaise et vivifie les cœurs — D’après Al-Wâbil as-Sayyib d’Ibn al-Qayyim",
+    "description": "Une adaptation pédagogique en français inspirée d’Al-Wâbil as-Sayyib de l’imam Ibn al-Qayyim al-Jawziyya : cent bienfaits du rappel d’Allah (dhikr) pour purifier, apaiser et vivifier le cœur.",
+    "collection": "Spiritualité et purification des cœurs",
+    "categorie": "Prière & spiritualité",
+    "categorie_id": "priere",
+    "pages": 44,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/les-100-bienfaits-du-rappel-d-allah.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
+  },
+  {
+    "slug": "la-douceur-parure-du-mariage",
+    "titre": "La douceur, parure du mariage",
+    "accroche": "La patience et la miséricorde entre les époux à la lumière du Coran et de la Sunna",
+    "description": "Un livret pratique adressé aussi bien à l’époux qu’à l’épouse pour nourrir la douceur, la patience, la bonté et la justice au sein du foyer à la lumière du Coran et de la Sunna.",
+    "collection": "Éthique et famille",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 36,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/la-douceur-parure-du-mariage.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
+  },
+  {
+    "slug": "medine-la-ville-que-le-prophete-aimait",
+    "titre": "Médine — La ville que le Prophète ﷺ aimait",
+    "accroche": "Les mérites de Médine à la lumière du Coran et de la Sunna",
+    "description": "À travers les versets du Coran et les hadiths authentiques, découvrez les mérites de Médine, de la mosquée prophétique, de Qubâ, d’Uhud et d’Al-Baqî‘, ainsi que la patience et l’attachement à cette ville bénie.",
+    "collection": "Histoire & spiritualité",
+    "categorie": "Prière & spiritualité",
+    "categorie_id": "priere",
+    "pages": 46,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/medine-la-ville-que-le-prophete-aimait.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
   }
 ]

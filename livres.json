@@ -745,5 +745,31 @@
     "pdf": "pdfs/les-maladies-du-coeur-et-leurs-remedes.pdf",
     "auteur": "Salah Eddine Ahmed Abou Soulaymane",
     "langue": "Français"
+  },
+  {
+    "slug": "la-main-qui-demande-et-la-main-qui-donne",
+    "titre": "La main qui demande et la main qui donne",
+    "accroche": "La mendicité volontaire, ses dangers et les devoirs de la solidarité en Islam",
+    "description": "Entre dignité dans le besoin et générosité envers les plus démunis : ce livret examine les enseignements du Coran et de la Sunna sur la mendicité injustifiée, la retenue dans la demande et les devoirs de solidarité en Islam.",
+    "collection": "Éthique et spiritualité musulmanes",
+    "categorie": "Jurisprudence",
+    "categorie_id": "fiqh",
+    "pages": 21,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/la-main-qui-demande-et-la-main-qui-donne.pdf",
+    "auteur": "Salah Eddine Ahmed Abou Soulaymane",
+    "langue": "Français"
+  },
+  {
+    "slug": "la-main-qui-demande-version-arabe-corrigee",
+    "titre": "La Main Qui Demande Version Arabe Corrigee",
+    "accroche": "Ouvrage de 25 pages au format PDF",
+    "description": "La Main Qui Demande Version Arabe Corrigee — ouvrage de 25 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
+    "collection": "Éditions de l’Institut",
+    "categorie": "Éducation",
+    "categorie_id": "education",
+    "pages": 25,
+    "date": "Novembre 2026",
+    "pdf": "pdfs/la-main-qui-demande-version-arabe-corrigee.pdf"
   }
 ]

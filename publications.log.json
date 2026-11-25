@@ -474,5 +474,19 @@
     "slug": "1",
     "titre": "بطاقات النوال في شرح تحفة الأطفال",
     "pages": 206
+  },
+  {
+    "timestamp": "2026-11-25T03:51:39.749752+00:00",
+    "action": "added",
+    "slug": "la-main-qui-demande-et-la-main-qui-donne",
+    "titre": "La main qui demande et la main qui donne",
+    "pages": 21
+  },
+  {
+    "timestamp": "2026-11-25T03:51:39.751194+00:00",
+    "action": "added",
+    "slug": "la-main-qui-demande-version-arabe-corrigee",
+    "titre": "La Main Qui Demande Version Arabe Corrigee",
+    "pages": 25
   }
 ]

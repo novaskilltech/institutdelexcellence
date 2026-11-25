@@ -38,4 +38,34 @@
       hitCount(ns,key).then(v=>{if(v!==null&&out)out.textContent=fmt(v);});
     }));
   }
+  const promoStage=document.querySelector('[data-promo-stage]');
+  if(promoStage){
+    const facade=promoStage.querySelector('[data-promo-trigger]'),video=promoStage.querySelector('[data-promo-video]'),vStat=document.querySelector('[data-video-counter]'),vOut=vStat?.querySelector('[data-video-count]');
+    const vNs=vStat?.dataset.videoNs||'institut-excellence-v1',vKey=safeKey('vid-'+(vStat?.dataset.videoCounter||'promo'));
+    let countedPlay=false;
+    if(vOut)readCount(vNs,vKey).then(v=>{if(v!==null)vOut.textContent=fmt(v);});
+    const launchVideo=(scrollInto)=>{
+      if(scrollInto)document.querySelector('#presentation')?.scrollIntoView({behavior:'smooth',block:'center'});
+      const mobile=window.matchMedia('(max-width: 680px)').matches;
+      const targetSrc=mobile?promoStage.dataset.srcMobile:promoStage.dataset.srcDesktop;
+      const targetPoster=mobile?promoStage.dataset.posterMobile:promoStage.dataset.posterDesktop;
+      if(!video.getAttribute('src')||video.getAttribute('src')!==targetSrc){
+        video.setAttribute('poster',targetPoster||'');
+        video.setAttribute('src',targetSrc||'');
+        video.load();
+      }
+      if(facade)facade.hidden=true;
+      video.hidden=false;
+      video.play().catch(()=>{});
+      if(!countedPlay){
+        countedPlay=true;
+        hitCount(vNs,vKey).then(v=>{if(v!==null&&vOut)vOut.textContent=fmt(v);});
+      }
+    };
+    facade?.addEventListener('click',()=>launchVideo(false));
+    document.querySelectorAll('[data-play-promo]').forEach(btn=>btn.addEventListener('click',e=>{
+      e.preventDefault();
+      launchVideo(btn.tagName==='A');
+    }));
+  }
 })();

@@ -762,14 +762,16 @@
   },
   {
     "slug": "la-main-qui-demande-version-arabe-corrigee",
-    "titre": "La Main Qui Demande Version Arabe Corrigee",
-    "accroche": "Ouvrage de 25 pages au format PDF",
-    "description": "La Main Qui Demande Version Arabe Corrigee — ouvrage de 25 pages proposé en lecture et téléchargement gratuits par l’Institut de l’Excellence.",
-    "collection": "Éditions de l’Institut",
-    "categorie": "Éducation",
-    "categorie_id": "education",
+    "titre": "اليد التي تسأل واليد التي تعطي",
+    "accroche": "خطر التسول من غير حاجة وأهمية الصدقة والتكافل في الإسلام",
+    "description": "بين التعفف عند الحاجة والبذل عند القدرة: رسالة في خطورة سؤال الناس من غير حاجة، وأحكام الصدقة، والتكافل الاجتماعي في ضوء الكتاب والسنة (٢٥ صفحة).",
+    "collection": "الأخلاق والتزكية",
+    "categorie": "Jurisprudence",
+    "categorie_id": "fiqh",
     "pages": 25,
     "date": "Novembre 2026",
-    "pdf": "pdfs/la-main-qui-demande-version-arabe-corrigee.pdf"
+    "pdf": "pdfs/la-main-qui-demande-version-arabe-corrigee.pdf",
+    "auteur": "صلاح الدين أحمد أبو سليمان",
+    "langue": "العربية"
   }
 ]
